@@ -1,0 +1,21 @@
+ 
+<nb-card style="margin-top: 60px !important;">
+  
+  
+    <nb-card-body>
+
+      <div style="float: right;" class="dropdown">
+        <button class="dropbtn">&#9776;</button>
+        <div class="dropdown-content">
+        <a href="#">Export PDF </a>
+        <a href="#">Export JSON </a>
+        <a (click)="export()">Export XLS</a>
+        </div>
+      </div>
+    
+
+      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  

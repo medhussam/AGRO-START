@@ -1,0 +1,97 @@
+
+
+<main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+  <div class="container">
+    <div class="card login-card">
+      <div class="row no-gutters">
+        <div class="col-md-5">
+          <img src="../../assets/images/efM6raVcBv.jpg" alt="login" class="login-card-img">
+        </div>
+        <div class="col-md-7">
+          <div style="text-align: -webkit-center;" class="card-body">
+            <div class="brand-wrapper">
+              <img src="../../assets/images/logo-iot.png" alt="logo" class="logo">
+              
+            </div>
+            <h1 style="font-weight: bold;">AGRO-Start</h1>
+            <p class="login-card-description">Bienvenue</p>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #form="ngForm" aria-labelledby="title">
+                <div class="form-group">
+                  <label for="email" class="sr-only">Email</label>
+                  <input formControlName="username" id="form-username" type="text"
+                  [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                  placeholder="Nom d'utilisateur..." class="form-username form-control">
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Nom d'utilisateur requis</div>
+                </div>
+                </div>
+                <div class="form-group mb-4">
+                  <label for="password" class="sr-only">Mot de passe</label>
+                  <input id="form-password" formControlName="password" type="password"
+                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                  placeholder="Mot de passe..." class="form-password form-control">
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Mot de passe requis</div>
+                </div>
+                </div>
+                <input name="login" id="login" [disabled]="loading"  type="submit" class="btn btn-block login-btn mb-4" value="S'authentifier">
+                <!-- <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> -->
+
+
+                <section *ngIf="loading" >
+                  <div class="loading loading01">
+                    <span>A</span>
+                    <span>G</span>
+                    <span>R</span>
+                    <span>O</span>
+                    <span>-</span>
+                    <span>I</span>
+                    <span>o</span>
+                    <span>T</span>
+                  </div>
+                </section>
+
+
+
+
+
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+              </form>
+              <a href="#!" class="forgot-password-link">J'ai perdu mon mot de passe!</a>
+              <p class="login-card-footer-text">Vous n'avez pas encore de compte ? <a [routerLink]="['/register']" class="text-reset">Inscrivez-vous</a></p>
+              <nav class="login-card-footer-nav">
+                <a href="#!">Conditions d'utilisation.</a>
+                <a href="#!">Politique de confidentialité</a>
+              </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="card login-card">
+      <img src="assets/images/login.jpg" alt="login" class="login-card-img">
+      <div class="card-body">
+        <h2 class="login-card-title">Login</h2>
+        <p class="login-card-description">Sign in to your account to continue.</p>
+        <form action="#!">
+          <div class="form-group">
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+          </div>
+          <div class="form-prompt-wrapper">
+            <div class="custom-control custom-checkbox login-card-check-box">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Remember me</label>
+            </div>              
+            <a href="#!" class="text-reset">Forgot password?</a>
+          </div>
+          <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
+        </form>
+        <p class="login-card-footer-text">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
+      </div>
+    </div> -->
+  </div>
+</main>

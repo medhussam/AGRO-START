@@ -1,0 +1,100 @@
+<div class="ngx-addmodal-parcelle">
+
+    <div class="ngx-addmodal-parcelle-body">
+    
+            <table class="table table-striped">
+             
+              <tbody>
+                <tr>
+                  <td  >matricule</td>
+                  <td  ><input class=" form-control form-control-sm capteurInput" type="text" name="id capteur" id="id_capteur"  [(ngModel)]="editParcelle.properties.matricule">
+                  </td>
+                   
+                </tr>
+                <!-- <tr>
+                  <td>nombre de parcelles</td>
+                  <td><input class="form-control form-control-sm capteurInput" 
+                      type="text" name="parametre"  id="parametre" 
+                      value="" 
+                     disabled>
+                  </td>
+                   
+                </tr> -->
+                <tr>
+                  <td>Superficie</td>
+                  <td> <input class="form-control form-control-sm capteurInput"
+                       type="text" name="Culture" id="Culture"
+                       
+                       [value]="editParcelle.properties.superficie"
+                        disabled>
+                  </td>
+                  
+                </tr>
+            
+                <tr>
+                  <td>Type de Culture</td>
+                  <td>    <nb-select placeholder="type culture">
+                    <nb-option (click)="selectTypeCuture('CEREALES')" value="CEREALES">CEREALES</nb-option>
+                    <nb-option (click)="selectTypeCuture('LEGUMINEUSES')" value="LEGUMINEUSES">LEGUMINEUSES</nb-option>
+                    <nb-option (click)="selectTypeCuture('CULTURES FOURRAGERES')" value="CULTURES FOURRAGERES">CULTURES FOURRAGERES</nb-option>
+                    <nb-option (click)="selectTypeCuture('CULTURES INDUSTRIELLES')" value="CULTURES INDUSTRIELLES">CULTURES INDUSTRIELLES</nb-option>
+                    <nb-option (click)="selectTypeCuture('CULTURES OLEAGINEUSES')" value="CULTURES OLEAGINEUSES">CULTURES OLEAGINEUSES</nb-option>
+                    <nb-option (click)="selectTypeCuture('HORTICULTURE')" value="HORTICULTURE">HORTICULTURE</nb-option>
+                    <nb-option (click)="selectTypeCuture('ARBORICULTURE')" value="ARBORICULTURE">ARBORICULTURE</nb-option>
+                 
+                  </nb-select>
+                  </td>
+                  
+                </tr>
+                <tr>
+                  <td>Culture</td>
+                  <td>             <nb-select placeholder="Culture" [(selected)]="selectedIprvince">
+                    <nb-option  *ngFor="let cul of cultures" (click)="selectCulture(cul.culture)" value="{{cul.culture}}">{{cul.culture}}</nb-option>
+                    
+                  </nb-select>
+                  </td>
+                  
+                </tr>
+                <tr>
+                  <td>variété</td>
+                  <td>             <input class="form-control form-control-sm capteurInput"
+                    type="text" name="Culture" id="Culture" [(ngModel)]="editParcelle.properties.variete">
+                  </td>
+                  
+                </tr>
+                <tr>
+                  <td>Type de Sol</td>
+                  <td>             <nb-select placeholder="Type de Sol">
+                    <nb-option (click)="selectTypeSol('Argile')" value="Argile">Argile</nb-option>
+                    <nb-option (click)="selectTypeSol('Argile limoneuse')" value="Argile limoneuse">Argile limoneuse</nb-option>
+                    <nb-option (click)="selectTypeSol('Argile sableuse')" value="Argile sableuse">Argile sableuse</nb-option>
+                    <nb-option (click)="selectTypeSol('Limon')" value="Limon">Limon</nb-option>
+                    <nb-option (click)="selectTypeSol('Loam')" value="Loam">Loam</nb-option>
+                    <nb-option (click)="selectTypeSol('Loam argileux')" value="Loam argileux">Loam argileux</nb-option>
+                    <nb-option (click)="selectTypeSol('Loam argilo-limoneux')" value="Loam argilo-limoneux">Loam argilo-limoneux</nb-option>
+                    <nb-option (click)="selectTypeSol('Loam argilo-sableux')" value="Loam argilo-sableux">Loam argilo-sableux</nb-option>
+                    <nb-option (click)="selectTypeSol('Loam limoneux')" value="Loam limoneux">Loam limoneux</nb-option>
+                    <nb-option (click)="selectTypeSol('Loam sableux')" value="Loam sableux">Loam sableux</nb-option>
+                    <nb-option (click)="selectTypeSol('Lourd')" value="Lourd">Lourd</nb-option>
+                    <nb-option (click)="selectTypeSol('Léger')" value="Léger">Léger</nb-option>
+                    <nb-option (click)="selectTypeSol('Moyen')" value="Moyen">Moyen</nb-option>
+                    <nb-option (click)="selectTypeSol('Sable')" value="Sable">Sable</nb-option>
+                    <nb-option (click)="selectTypeSol('Sable limoneux')" value="Sable limoneux">Sable limoneux</nb-option>
+                  </nb-select>
+                  </td>
+                  
+                </tr>
+                <!-- <ngx-datepicker-draw  (dateFrom)="dateFrom($event)" (dateTo)="dateTo($event)"></ngx-datepicker-draw> -->
+             
+             
+                
+              </tbody>
+            </table>
+              
+            <button (click)="updateParcelle(editParcelle)" routerLinkActive="router-link-active"  class="btn btn-primary "> edit une parcelle </button>
+            <!-- <button class="btn btn-danger ml-3" (click)="closeModal()">Close</button> -->
+
+        <!-- {{editParcelle | json}} -->
+    </div>
+</div>
+<div class="ngx-addmodal-parcelle-background"></div>

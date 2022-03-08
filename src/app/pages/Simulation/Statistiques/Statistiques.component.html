@@ -1,0 +1,122 @@
+
+
+<div class="row">
+
+
+    <nb-card class="col-6"  style="margin-right: -6px;margin-left: -2px;" >
+      <!-- <nb-card-header *ngIf="DateFromMap1 == 'null'">Statistiques du {{times_1}}</nb-card-header> -->
+      <nb-card-header   >Statistiques du {{convert(DateFromMap1)}} </nb-card-header>
+      <nb-card-body>
+        
+
+
+
+
+
+
+
+
+        
+
+<!-- {{Statistics|json}}- -->
+<!-- {{msgFromChild1}}
+<div *ngIf="isEmptyObject(msgFromChild1)">{{msgFromChild1[0]|json }}</div> -->
+        <div class="container" *ngFor="let i of Statistics">
+          <!-- <div>{{i.time +'=='+ DateFromMap1}}</div> -->
+          <div class="row" *ngIf="i.time == DateFromMap1  ">
+            
+          <!-- <div  class="col-md-4">
+            <div class="card-counter info info_custom">
+              <i class="far fa-arrow-alt-circle-down"></i>
+              <span class="count-numbers">{{i.min | number : '1.2-2'}}</span>
+              <span class="count-name">MIN</span>
+            </div>
+          </div> -->
+      
+          <div class="col-md-6">
+            <div class="card-counter info info_custom1">
+             <i class="far fa-check-circle"></i>
+              <span class="count-numbers">{{i.mean | number : '1.2-2'}} <b >mm/j</b></span>
+              <span class="count-name">MOYENNE</span>
+            </div>
+          </div>
+      
+          <div class="col-md-6">
+            <div class="card-counter info info_custom1">
+              <i class="far fa-arrow-alt-circle-up"></i>
+              <span class="count-numbers">{{i.max | number : '1.2-2'}}<b > mm/j</b></span>
+              <span class="count-name">MAX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+      </nb-card-body>
+    </nb-card> 
+    <nb-card class="col-6" style="    margin-left: 14px  ;  margin-right: -14px;" >
+      <!-- <nb-card-header>Statistiques du {{times}}</nb-card-header> -->
+      <!-- <nb-card-header *ngIf="DateFromMap2 == 'null'">Statistiques du {{times_1}}</nb-card-header> -->
+      <nb-card-header  >Statistiques du {{convert(DateFromMap2)}}</nb-card-header>
+      <nb-card-body>
+        
+
+
+
+
+
+
+
+
+        
+
+
+        <div class="container" *ngFor="let i of Statistics">
+          <!-- <div>{{i.time +'=='+ DateFromMap2}}</div> -->
+          <div class="row"  *ngIf="i.time == DateFromMap2 ">
+          <!-- <div class="col-md-4">
+            <div class="card-counter info info_custom">
+              <i class="fas fa-chevron-circle-down"></i>
+              <span class="count-numbers">{{i.min | number : '1.2-2'}}</span>
+              <span class="count-name">MIN</span>
+            </div>
+          </div> -->
+      
+          <div class="col-md-6">
+            <div class="card-counter info info_custom">
+              <i class="far fa-check-circle"></i>
+              <span class="count-numbers">{{i.mean | number : '1.2-2'}} <b >mm/j</b></span>
+              <span class="count-name">MOYENNE</span>
+            </div>
+          </div>
+      
+          <div class="col-md-6">
+            <div class="card-counter info info_custom">
+              <i class="far fa-arrow-alt-circle-up"></i>
+              <span class="count-numbers">{{i.max | number : '1.2-2'}} <b >mm/j</b></span>
+              <span class="count-name">MAX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+        
+      </nb-card-body>
+    </nb-card> 
+  </div>
+  

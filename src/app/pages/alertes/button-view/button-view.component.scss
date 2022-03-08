@@ -1,0 +1,25 @@
+.btn-custom{
+    background: #52b0fd;
+    color: white;
+}
+.modal-warning{
+    border-top: 1px solid rgb(208, 255, 0);
+    border-bottom: 1px solid rgb(229, 255, 0);
+}
+.modal-critical{
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+}
+.modal-ok{
+    border-top: 1px solid rgb(81, 255, 0);
+    border-bottom: 1px solid rgb(51, 255, 0);
+}
+.modal-dialog {
+    height: 278px !important;
+    width: 1050px !important;
+}
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 1050px !important;
+    margin: 14.75rem auto !important;
+}}

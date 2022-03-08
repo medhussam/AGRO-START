@@ -1,0 +1,204 @@
+{
+   
+    "menu":{
+        "bord":"لوحة القيادة",
+        "capteurs":"أجهزة الاستشعار",
+        "tableetdata":"الجدول والبيانات",
+        "MAPS":"خرائط",
+        "moduledeconseils":"وحدة المشورة",
+        
+            "evapotranspiration":"التبخر",
+            "irrigation":"الري",
+            "fertilisation":"التخصيب",
+     
+        "AGRO_SURVEILLANCE":"مراقبة الزراعة",
+        "SUB_AGRO_SURVEILLANCE":{
+            "imageriesatellitaire":"صور الأقمار الصناعية",
+            "meteodusol":"طقس التربة"
+        
+        },
+        "notification":"تنبيه",
+        "alerts":"تنبيهات",
+        "informationsutils":"معلومات مفيدة",
+        "administration":"الادارة"
+    },
+
+
+
+    "dashboard":{
+      "exploitations":"المزارع",
+      "temperature":"درجة حرارة",
+      "humidite":"رطوبة",
+      "vent":"الرياح",
+      "hourlever":"شروق الشمس",
+      "hourcoucher":"غروب الشمس",
+      "pluviometrie":"هطول الأمطار",
+      "pression":"ضغط",
+      "point_de_rosee":"ندى",
+
+
+
+      "min_journalier":"الحد الادنى اليومي",
+      "max_journalier":"الحد الأقصى اليومي",
+      "amplitude_thermique":"Amplitude thermique",
+      "variation_journaliere":"الاختلاف اليومي",
+      "capteur":"المستشعر",
+      "vitesse_du_vent":"سرعة الرياح",
+      "vitesse_du_rafale":"Vitesse du rafale",
+      "direction_du_vent":"اتجاه الرياح °",
+      "capteur_externe":"جهاز استشعار خارجي",
+      "pluv_cumulee":"هطول الأمطار التراكمي على مدار 24 ساعة",
+
+
+
+      "title_chart_temperature":"تاريخ قياسات درجة الحرارة على مدى 7 أيام",
+      "forcast":"توقعات 5 أيام",
+      "title_chart_humidite":"تاريخ قياسات الرطوبة على مدى 7 أيام",
+      "title_chart_vent":"7 يوم تاريخ الرياح",
+      "title_chart_ultraviolet":"تاريخ الأشعة فوق البنفسجية",
+      "title_chart_rain":"سجل هطول الأمطار التراكمي على مدار 24 ساعة",
+      
+      "nomber_mesure":"عدد القياسات",
+      "d_mesure":"القياس الأخير",
+      "nombre_jours":"عدد الأيام",
+
+      "title_info_cap":"توزيع أجهزة الاستشعار حسب العملية والنوع"
+ 
+      
+  },
+
+    "administration_exploitatation":{
+        "title_add_exp":"يرجى اضافة المعلومات الخاصة بمزرعتك",
+        "matricule":"رقم التسجيل",
+        "superficie":"مساحة",
+        "region":"جهة",
+        "province":"العمالة",
+        
+            "button_modifier":"للتعديل",
+            "button_confermer_et_ajoter":"التأكيد والإضافة قطعة",
+            "message_eroor":"من فضلك ارسم قطعة الأرض الخاصة بك داخل مزرعتك",
+     
+        "button_ressayer":"حاول مرة أخرى",
+        "type_de_culture":"نوع المحصول",
+        "culture":"المحصول",
+        "variete":"تشكيلة",
+        "type_de_sol":"نوع التربة",
+
+        "date_debut":"تاريخ البداية",
+        "date_fin":"تاريخ الانتهاء",
+        "terminer":"إلى النهاية",
+        "title_add_par":"يرجى ادخال المعلومات الخاصة بقطعة الارض المتواجدة بالمزرعة ",
+       
+
+        "ger_exp":"إدارة المزارع الخاصة بي",
+        "nombre_de_parcelles":"عدد القطع",
+        "actions":"تعديل",
+        "ajouter":"أضف",
+        "supprimer":"حذف"
+    },
+
+    "draw": {
+        "toolbar": {
+          "actions": {
+            "title": "Cancel hhhhhhhhhhh",
+            "text": "hhhhhhhhhhh"
+          },
+          "finish": {
+            "title": "hhhhhhhhhhh",
+            "text": "hhhhhhhhhhh"
+          },
+          "undo": {
+            "title": "hhhhhhhhhhh",
+            "text": "hhhhhhhhhhh"
+          },
+          "buttons": {
+            "polyline": "hhhhhhhhhhh",
+            "polygon": "hhhhhhhhhhh",
+            "rectangle": "hhhhhhhhhhh",
+            "circle": "hhhhhhhhhhh",
+            "marker": "hhhhhhhhhhh",
+            "circlemarker": "hhhhhhhhhhh"
+          }
+        },
+        "handlers": {
+          "circle": {
+            "tooltip": {
+              "start": "hhhhhhhhhhh"
+            },
+            "radius": "hhhhhhhhhhh"
+          },
+          "circlemarker": {
+            "tooltip": {
+              "start": "hhhhhhhhhhh."
+            }
+          },
+          "marker": {
+            "tooltip": {
+              "start": "hhhhhhhhhhh."
+            }
+          },
+          "polygon": {
+            "tooltip": {
+              "start": "اللغة العربية.",
+              "cont": "hhhhhhhhhhh.",
+              "end": "hhhhhhhhhhh."
+            }
+          },
+          "polyline": {
+            "error": "<strong>Error:</strong> shape edges cannot cross!",
+            "tooltip": {
+              "start": "Click to start drawing line.",
+              "cont": "Click to continue drawing line.",
+              "end": "Click last point to finish line."
+            }
+          },
+          "rectangle": {
+            "tooltip": {
+              "start": "hhhhhhhhhhh."
+            }
+          },
+          "simpleshape": {
+            "tooltip": {
+              "end": "Release mouse to finish drawing."
+            }
+          }
+        }
+      },
+      "edit": {
+        "toolbar": {
+          "actions": {
+            "save": {
+              "title": "Save changes",
+              "text": "Save"
+            },
+            "cancel": {
+              "title": "Cancel editing, discards all changes",
+              "text": "Cancel"
+            },
+            "clearAll": {
+              "title": "Clear all layers",
+              "text": "Clear All"
+            }
+          },
+          "buttons": {
+            "edit": "Edit layers",
+            "editDisabled": "No layers to edit",
+            "remove": "Delete layers",
+            "removeDisabled": "No layers to delete"
+          }
+        },
+        "handlers": {
+          "edit": {
+            "tooltip": {
+              "text": "Drag handles or markers to edit features.",
+              "subtext": "Click cancel to undo changes."
+            }
+          },
+          "remove": {
+            "tooltip": {
+              "text": "Click on a feature to remove."
+            }
+          }
+        }
+      }
+}

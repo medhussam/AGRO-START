@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Agro-Start Application</title>
+
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpVhQiwAllg1RAFaxMWSpQruuGARy0Y1k&libraries=places"></script>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+  <ngx-app>
+<style>
+
+.wave{
+  position: relative;
+  -webkit-box-reflect: below -12px linear-gradient(transparent,rgba(0,0,0,0.2));
+}
+.wave span{
+  position: relative;
+  display: inline-block;
+  color:#fff;
+  font-size:4em;
+  text-transform: uppercase;
+  animation:animate 1.5s ease-in-out infinite;
+  animation-delay: calc(.1s * var(--c));
+}
+@keyframes animate{
+  0%,100%{
+    transform: translateY(0px);
+  }
+  20%{
+    transform: translateY(-20px);
+  }
+  40%{
+    transform: translateY(0px);
+  }
+}
+</style>
+  <div class="wave">
+    <span style="--c:1;">L</span>
+    <span style="--c:2;">o</span>
+    <span style="--c:3;">a</span>
+    <span style="--c:4;">d</span>
+    <span style="--c:5;">i</span>
+    <span style="--c:6;">n</span>
+    <span style="--c:7;">g</span>
+    <span style="--c:8;">.</span>
+    <span style="--c:9;">.</span>
+    <span style="--c:10;">.</span>
+  </div>
+</ngx-app>
+</body>
+</html>

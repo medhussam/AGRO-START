@@ -1,0 +1,68 @@
+<nb-card class="card_fixed col-12">
+    <nb-card-body>
+<!-- {{parceletcImagery | json}} -->
+
+        <!-- --><div style="display: block ruby; grid-template-columns: auto auto; margin-left: 15%;">
+             
+       <!-- <ngx-select-exp2-s style="float: left;" [selectedValue]="selectedEXP" [exploitation]="exploitation" (expSelected)="explSelected($event)"></ngx-select-exp2-s> -->
+       <div class="nav_fix float-left" ><b>Exploitations : </b>  </div>
+       <nb-select style="float:left"  [placeholder]="selectedEXP+' (ParDéfaut)'" [(selected)]="selectedEXP" status="primary">
+        <nb-option (click)="explSelected(exp.properties.id_exploitation)" *ngFor="let exp of exploitation" [value]="exp.properties.id_exploitation"> {{ exp.properties.matricule }}</nb-option>
+      </nb-select>
+      
+      <div class="nav_fix" ><b>Parcelle : </b>  </div>
+       <nb-select  style="margin-left:20px;" class="float-left"   [placeholder]="selectedParcelle+' (ParDéfaut)'"  [(selected)]="selectedParcelle" status="primary">
+          <nb-option  *ngFor="let i of Parcelle" [value]="i.id_parcelle" 
+      (click)="parcelleSelcted(i.id_parcelle)" >
+        {{'Id Parcelle : '+i.id_parcelle}}  </nb-option>
+         
+      </nb-select> 
+      
+      
+     
+      
+        </div> 
+    </nb-card-body>
+     
+
+
+
+
+
+
+
+ 
+  </nb-card> 
+ 
+<div class="row">
+
+  <div class="col-md-6" style="margin-top: 70px;float: left;" >
+    <!-- {{ msgFromChild1 | json}}-
+    {{ lenght | json}}- -->
+
+    <ngx-Map-1-simulation (tiimes)="acceptData($event)" (tiime)="acceptData($event)" [selectedParcelle]="selectedParcelle"   [ExploitationEvent]="selectedEXP"  [parceletcImagery]="parceletcImagery"></ngx-Map-1-simulation>
+  
+    </div>
+
+    <div class="col-md-6" style="margin-top: 70px;float: right;" >
+      
+      <ngx-Map-2-simulation (tiimes)="acceptData2($event)"  [selectedParcelle]="selectedParcelle"   [ExploitationEvent]="selectedEXP"   [parceletcImagery]="parceletcImagery" ></ngx-Map-2-simulation>
+    
+      </div>
+    </div>
+
+
+
+
+
+<ngx-statistiques [DateFromMap1]="DateFromMap1" [DateFromMap2]="DateFromMap2"   [Statistics]="Statistics" ></ngx-statistiques>
+<ngx-chart-simulation    [Statistics]="Statistics" ></ngx-chart-simulation>
+ 
+<!-- <div class="receivedMessages">
+  <div class="child1">
+    <p><b>Message from Child1</b><br> via ChildView():</p>
+    <p>{{ currentMsgToParent }}</p> -->
+   
+  <!-- </div>
+</div> -->
+<!-- {{Statistics | json}} -->

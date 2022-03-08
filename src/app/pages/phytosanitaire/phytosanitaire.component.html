@@ -1,0 +1,72 @@
+
+<nb-card>
+    <nb-card-body class="rd5">
+
+        <nb-select-label class="rd4">
+            Produit : 
+        </nb-select-label>
+        <nb-select class="rd3">
+            <nb-option (click)="changeProduit('all')">Tous les produits</nb-option>
+            <nb-option *ngFor ="let produit of listProduits" [value]= "produit" (click)="changeProduit(produit)" >
+                  {{produit}}
+            </nb-option>
+        </nb-select>
+        
+        <nb-select-label  class="rd4">
+            Matière active : 
+        </nb-select-label>
+        <nb-select class="rd3">
+            <nb-option (click)="changeMatiere('all')">Toutes les matières actives</nb-option>
+            <nb-option *ngFor ="let mat of listMatiere" [value]= "mat" (click)="changeMatiere(mat)" >
+                  {{mat}}
+            </nb-option>
+        </nb-select>
+        
+
+        <nb-select-label class="rd4">
+            Catégorie : 
+        </nb-select-label>
+        <nb-select class="rd3">
+            <nb-option (click)="changeCategorie('all')">Toutes les catégories</nb-option>
+            <nb-option *ngFor ="let cat of listCategories" [value]= "cat" (click)="changeCategorie(cat)" >
+                  {{cat}}
+            </nb-option>
+        </nb-select>
+        
+            <nb-select-label class="rd4" >
+                Usage : 
+            </nb-select-label>
+        <nb-select class="rd3">
+
+            <nb-option (click)="changeUsage('all')">Tous les usages</nb-option>
+            <nb-option *ngFor ="let Usage of listUsages" [value]= "Usage" (click)="changeUsage(Usage)" >
+                  {{Usage}}
+            </nb-option>
+        </nb-select>
+        
+        <nb-select-label class="rd4" >
+            Culture : 
+        </nb-select-label>
+        <nb-select class="rd3">
+            <nb-option (click)="changeCulture('all')">Toutes les cultures</nb-option>
+            <nb-option *ngFor ="let Culture of listCultures" [value]= "Culture" (click)="changeCulture(Culture)" >
+                  {{Culture}}
+            </nb-option>
+        </nb-select>
+    </nb-card-body>
+</nb-card>
+
+
+
+
+<nb-card class="smart-table-container">
+    <nb-card-body>
+         <ng2-smart-table [settings]="settings" [source]="dataPhyto" (userRowSelect)="onRowSelect($event)">
+        </ng2-smart-table> 
+    </nb-card-body>
+</nb-card>
+
+
+
+
+

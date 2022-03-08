@@ -1,0 +1,65 @@
+.titre{
+    margin-top: 1%;
+    text-align: left;
+    margin-left: 1.5%;
+    color: white;
+}
+.title-card{
+    height : 51px;
+    background-image: linear-gradient(to right, #94cbff, #42aaff);
+    color: white;
+    border: 1px solid #0296ff;
+   
+    
+}
+::ng-deep ng2-smart-table table thead > tr.ng2-smart-titles th {
+    background-color : #94cbff;
+    color : white;
+    font-weight: 1000;
+    text-align: center;
+}
+
+::ng-deep ng2-smart-table table thead > tr.ng2-smart-titles th.ng2-smart-th a {
+    background-color : #94cbff;
+    color : white;
+    font-weight: 1000;
+}
+
+::ng-deep ng2-smart-table table tbody > tr.ng2-smart-row td{
+    font-size: 12px;
+}
+::ng-deep ng2-smart-table table tbody > tr::nth-child(even){
+    background: white;}
+
+    ::ng-deep ng2-smart-table table tbody > tr.ng2-smart-row{
+        background: white !important;
+        background-image: white !important;
+    }
+
+
+
+
+
+
+
+    
+.btn-rein{
+   
+    margin-top: 7px;
+     
+     
+     background-color:#94CBFF;
+
+    @media (max-width : 560px){
+        margin-left: 0;
+    width:100%;
+     }
+    
+     @media (min-width : 560px){
+        margin-left: 20%;
+        width:60%;
+     } 
+    
+    
+    
+    }

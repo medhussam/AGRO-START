@@ -1,0 +1,28 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+  nb-card-body {
+    padding: 0;
+  }
+
+  ::ng-deep .leaflet-top, ::ng-deep .leaflet-bottom {
+    z-index: 997;
+  }
+
+  ::ng-deep .leaflet-container {
+    width: 100%;
+    height: nb-theme(card-height-large);
+  }
+}
+
+
+.legent {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  border-radius: 5px;
+  background-color: #FFFFFFbd;
+  z-index: 990;
+  padding:12px 18px;
+}

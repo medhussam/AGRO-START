@@ -1,0 +1,5 @@
+<nb-select class="selectExp" [(selected)]="eventexpSelected"  [placeholder]="eventexpSelected"  status="primary">
+    <nb-option (click)="changeExploitation(exp.properties.id_exploitation)"
+       *ngFor="let exp of exploitation" [value]="exp.properties.id_exploitation">
+       {{ exp.properties.matricule }}</nb-option>
+  </nb-select>

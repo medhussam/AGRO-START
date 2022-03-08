@@ -1,0 +1,82 @@
+
+  <div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6">
+              <h2>Gérer <b>mes Parcelles</b></h2>
+            </div>
+            <!-- <div class="col-sm-6">
+              <a  [routerLink]="['/pages/Adminstrator/add','add']" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Ajouter</span></a>
+        
+              <a  class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Supprimer</span></a>						
+            </div> -->
+          </div>
+        </div>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>
+                <span class="custom-checkbox">
+                  <input type="checkbox" id="selectAll">
+                  <label for="selectAll"></label>
+                </span>
+              </th>
+              <th>id parcelle</th>
+              <th>id exploitation</th>
+              <th>Superficie</th>
+              <th>id groupe</th>
+              <th>id secteur</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+       
+        
+       				
+            <tr *ngFor="let par of parcelles; let i = index">
+              <td>
+                <span class="custom-checkbox">
+                  <input type="checkbox" id="checkbox5" name="options[]" value="1">
+                  <label for="checkbox5"></label>
+                </span>
+              </td>
+              <td>{{par.properties.id_parcelle}}</td>
+              <td>{{par.properties.id_exploitation}}</td>
+              <td>{{par.properties.superficie}}</td>
+              <td>{{par.properties.id_groupe}}</td>
+              <td>{{par.properties.id_secteur}}</td>
+              <td>
+                <a (click)="openModal(par.properties.id_parcelle)" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+              </td>
+              <ngx-addmodal-parcelle [id]="par.properties.id_parcelle" [editParcelle]="par">
+                <button (click)="closeModal(par.properties.id_parcelle);">Fermer</button> 
+              </ngx-addmodal-parcelle>
+              <!-- <ngx-add-modal (updateExp)="updateExp($event)" [id_exp]='exp.properties.matricule' [exp]='exp'>
+                <button (click)="closeModal(exp.properties.matricule);">Fermer</button>   
+            </ngx-add-modal> -->
+            </tr> 
+          </tbody>
+        </table>
+        <!-- <div class="clearfix">
+          <div class="hint-text">Affichage <b>1</b> hors de<b> 25</b> parcelles</div>
+          <ul class="pagination">
+            <li class="page-item disabled"><a href="#">Précédente</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item active"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">4</a></li>
+            <li class="page-item"><a href="#" class="page-link">5</a></li>
+            <li class="page-item"><a href="#" class="page-link">suivante</a></li>
+          </ul>
+        </div> -->
+      </div>
+    </div>        
+  </div>
+ 
+
+       <!-- <ngx-add-modal id_exp="add">
+                <button (click)="closeModal('add');">Close</button>
+            </ngx-add-modal> -->

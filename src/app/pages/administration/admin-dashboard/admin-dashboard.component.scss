@@ -1,0 +1,118 @@
+:root{
+    --background-dark: #2d3548;
+    --text-light: rgba(255,255,255,0.6);
+    --text-lighter: rgba(255,255,255,0.9);
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
+    --width-container: 1200px;
+    
+  }
+  
+  *{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+   
+  
+  .hero-section{
+    align-items: flex-start;
+    background: none;
+    display: flex;
+    min-height: 100%;
+    justify-content: center;
+    padding: 17px 40px;
+  }
+  
+  .card-grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap:  24px;
+    grid-row-gap: 24px;
+  //@function max-width: 1200px;
+    width: 100%;
+  }
+  
+  @media(min-width: 540px){
+    .card-grid{
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  
+  @media(min-width: 960px){
+    .card-grid{
+      grid-template-columns: repeat(4, 1fr); 
+    }
+  }
+  
+  .card{
+    list-style: none;
+    position: relative;
+  }
+  
+  .card:before{
+    content: '';
+    display: block;
+    padding-bottom: 90%;
+    width: 100%;
+  }
+  
+  .card__background{
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px;
+    bottom: 0;
+    filter: brightness(0.75) saturate(1.2) contrast(0.85);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: center;
+    transform: scale(1) translateZ(0);
+    transition: 
+      filter 200ms linear,
+      transform 200ms linear;
+  }
+  
+  .card__background_none{
+   
+    filter: brightness(0.3) saturate(0.5) contrast(0.5);
+   
+  }
+   
+  
+  .card:hover .card__background{
+    transform: scale(1.05) translateZ(0);
+  }
+  
+  .card-grid:hover > .card:not(:hover) .card__background{
+    filter: brightness(0.5) saturate(70%) contrast(1.2) blur(2px);
+  }
+  
+  .card__content{
+    left: 0;
+    padding:  24px;
+    position: absolute;
+    top: 0;
+  }
+  .card{
+    background: none !important;
+  }
+  .card__category{
+    color:  rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  
+  .card__heading{
+    color:  rgba(255,255,255,0.9);
+    font-size: 1.9rem;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    line-height: 1.4;
+    word-spacing: 100vw;
+  }

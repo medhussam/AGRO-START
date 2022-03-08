@@ -1,0 +1,31 @@
+.smart-table-container {
+  overflow-x: scroll;
+}
+
+::ng-deep .ng-star-inserted {
+  font-size: 12px;
+
+}
+
+::ng-deep td.ng-star-inserted {
+  padding: 0 4px !important;
+
+}
+
+:host ::ng-deep ng2-smart-table table tr.ng2-smart-titles th a {
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.rd3 {
+  width: 14%;
+  padding: 0 15px;
+}
+
+.rd4 {
+  margin-bottom: 2%;
+}
+
+.rd5 {
+  margin-top: 60px;
+}

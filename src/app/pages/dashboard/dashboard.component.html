@@ -1,0 +1,236 @@
+
+
+<nb-card class="card_fixed col-12">
+  <nb-card-body>
+
+
+
+
+
+      <div style="display: block ruby; grid-template-columns: auto auto">
+        
+        <div class="nav_fix" ><b>{{'dashboard.exploitations'| translate}}  </b>  </div>
+        <nb-select class="input_exp" style="float:left"  [placeholder]="selectedValue+' (ParDéfaut)'" [(selected)]="selected" status="primary">
+          <nb-option (click)="changeExploitation(exp.properties.id_exploitation)" *ngFor="let exp of exploitetion" [value]="exp.properties.id_exploitation"> {{ exp.properties.matricule }}</nb-option>
+        </nb-select>
+        
+        <div class="float-right Mydivider"><b>{{'administration_exploitatation.superficie'| translate}}  : {{this.superficie | number : '1.2-2'}} ha </b>  </div>
+        <!-- <div class="float-right Mydivider"><b>{{'administration_exploitatation.nombre_de_parcelles'| translate}} : ( {{this.nbr_parcelle}} )  </b>  </div> -->
+      </div>
+  </nb-card-body>
+</nb-card> 
+
+<div style="margin-top: 72px;" class="row">
+  <div class="col-xxxl-3 col-md-3" *ngFor="let statusCard of statusCards">
+    <ngx-status-card [title]="statusCard.title" [value]="statusCard.value" [type]="statusCard.type">
+      <mat-icon class="icons-svg" [svgIcon]="statusCard.iconClass"></mat-icon> 
+    </ngx-status-card>
+  </div>
+</div>
+
+
+
+
+
+<!-- --- {{selectedID_EXP | json}} -->
+<div class="row"> 
+  
+  <div class="col-md-4">
+    <ngx-temperature [selectedID_EXP]="selectedID_EXP"></ngx-temperature>
+  
+  </div>
+  <div class="col-md-8">
+<ngx-leaflet [ID]="selectedID_EXP" [centerX]="centerX" [centerY]="centerY"></ngx-leaflet>
+  </div>  
+</div>
+
+<!-- {{mesure | json }} -->
+  
+
+
+  <ngx-charts-and-previsions [selectedID_EXP]="selectedID_EXP" ></ngx-charts-and-previsions>
+
+
+  <!-- <div style=" float: left;" class="col-xxxl-6  col-lg-6 col-md-12  col-sm-12">
+    <nb-card style="height: 96%;" class="inline-form-card">
+      <nb-card-header>Situation journalière des principaux grands barrages du Royaume</nb-card-header>
+      <nb-card-body class="barrage">
+        <form class="">
+        
+          <nb-select [(selected)]="selectedNameBarrage" style="display: block;float: left;margin-right:10px;margin-left:-10px;" placeholder="Nom Barrage">
+            <nb-option (click)="changeNomBarrage(barr)" *ngFor="let barr of DataBarrageByProvince" [value]="barr"> {{ barr.nom }}</nb-option>
+  
+          </nb-select> 
+        
+          <button  style="margin-right: 10px;        width:5%;        float: right;        height: 0px;        margin-top: 10px;        margin-bottom: 5px;"
+          [disabled]="!formpickerD" (click)="changeDateBarrage()"
+   nbButton fullWidth type="button" class="btn btn-info">
+   <i class="fa fa-search"></i>
+ </button>
+        <input   class="mydatepicker" nbInput style="margin-right:10px;float: right;"
+        placeholder="Date fin "
+        [nbDatepicker]="formpickerF">
+        <nb-datepicker style="display: none;" (dateChange)="dateChangeD($event)"  #formpickerF  ></nb-datepicker> 
+      
+        <input  class="mydatepicker fin" style="margin-right:10px;float: right;"  nbInput
+        placeholder="Date début"
+        [nbDatepicker]="formpickerD ">
+        <nb-datepicker style="margin-right:10px;display: none;" (dateChange)=" dateChangeF($event)"   #formpickerD ></nb-datepicker> 
+      
+    </form>
+     
+
+
+      
+          <ngx-line-chart-highchart style="   margin-left: -15px;       width: 100%;      " [checkTAUX]="checkTAUX"  [NomBarrage]="BarrageSelected"  [data]="BarragesCHart_"></ngx-line-chart-highchart>
+          <div class="checkbox-barrage">
+            <b> <p class="my-check"> Taux de remplissage</p></b>
+          <label  (change)="changeTAUX()" class="switch" for="checkbox">
+            <input  type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+          </label>
+        <b>  <p class="my-check">Retenue</p></b>  </div>
+          <div style="width: 100%;" *ngIf="BarragesCHart_" class="row">
+            <table class="prix">
+              <thead>
+                <tr>
+                  <th style="width: 20%;">Nom Barrage</th>
+                  <th style="width: 20%;">Region</th>
+                
+                  <th style="width: 20%;">Riviére</th>
+                  <th style="width: 20%;">Capcité Retenue</th>
+                  <th style="width: 20%;">Capcité Cumulé</th>
+                </tr>
+              </thead>
+              <tbody>
+              
+              
+                  <tr  *ngFor="let barr of DataBarrageSelected; let i =index" >
+                    <ng-container *ngIf="BarrageSelected == barr.nom && i == 0">
+                    <td style="width: 20%;">{{barr.nom+''}}</td>
+                  
+                    <td style="width: 20%;">{{barr.region}}</td>
+                  
+                    <td style="width: 20%;">{{barr.riviere}}</td>
+                    <td style="width: 20%;">{{barr.capacite_retenue}} Mm³</td>
+                    <td style="width: 20%;">{{barr.capacite_total_cumule}} Mm³</td>
+                  </ng-container>
+                  </tr>
+                  
+                </tbody>
+                  
+            </table>
+            
+          </div>
+
+
+
+
+
+      </nb-card-body>
+    </nb-card>
+  </div> -->
+<div style=" float: right;" class="col-lg-12 col-md-12 col-sm-12">
+  <!-- <nb-card> 
+    <nb-card-header>Moyenne des prix hebdomadaire des produits Marocains dans les marchés européens</nb-card-header>
+    <nb-card-body style="max-height: 650px;">
+  
+      <nb-select style="width:100%" placeholder="Selectionner marche"  status="primary">
+        <nb-option (click)="changeMarche(e)"  *ngFor="let e of marches" [value]="e.id_marche"> {{ e.nom_marche }} ({{ e.pays }})</nb-option>
+      </nb-select>
+  
+    <table class="table_">
+     
+      <tbody  *ngIf="!isEmptyObject(Produit)" class="tbody_">
+        <tr style="      background: aliceblue;  ">
+         
+          <td   style="text-align: left !important;width: 250px;"><b>Produit </b> </td>
+          <td style="width: 50px;" ><b>Unité</b> </td>
+          <td  > <b>Date </b></td>
+          <td  ><b> Prix </b>(€)</td>
+        </tr>
+        <tr  *ngFor="let exp of Produit ; let i = index" >
+          <td *ngIf="exp.info == 'NODATA'"  style="font-size: 14px !important;font-weight: 600;">Produits non disponibles</td>
+          <td  *ngIf="exp.info != 'NODATA'" style="text-align: left !important;width: 250px;"><b>{{ exp.info.nom_produit }} </b>({{ exp.info.pays }})</td>
+          <td style="width: 50px;" *ngIf="exp.info != 'NODATA'">{{ exp.info.unite }} </td>
+          <td  *ngIf="exp.info != 'NODATA'"> <b>{{ prix[i].time | date : 'dd/MM/yyyy' }}</b></td>
+          <td  *ngIf="exp.info != 'NODATA'"><b>{{ prix[i].prix_moy }} </b>€</td>
+        </tr>
+      </tbody>
+      <tbody  *ngIf="isEmptyObject(Produit)"  class=" selectun">
+        <tr style="      background: aliceblue;  " >
+         
+          <td   style="text-align: left !important;width: 250px;"><b>Produit </b> </td>
+          <td  style="width: 50px;">Unité </td>
+          <td  > <b>Date </b></td>
+          <td  ><b> Prix </b>(€)</td>
+        </tr>
+        <tr>
+          <td style="border: none !important;" colspan="5">
+            <label style="padding: 25px 0;" >Selectionné un marché</label>
+          
+          </td>
+        </tr>
+      </tbody>
+  </table>
+
+  </nb-card-body>
+  </nb-card>  -->
+   
+  
+  <!-- <nb-card> 
+    <nb-card-header>{{'dashboard.title_info_cap'| translate}}  <br>
+    <i class="icons_header"> ( <i class="fa fa-thermometer-half"></i> : Température ) </i>
+    <i class="icons_header"> ( <i class="fa fa-tint"></i> : Humidité) </i>
+    <i class="icons_header"> ( <i class="fa fa-tint-slash"></i> : Humidité du sol ) </i>
+    <i class="icons_header"> ( <i class="fa fa-thermometer"></i> : Température du sol ) </i>
+    <i class="icons_header"> ( <i class="fa fa-wifi"></i> : Niveau d'eau ) </i>
+    <i class="icons_header"> ( <i class="fa fa-bolt"></i> : Conductivité du sol ) </i>
+    <i class="icons_header"> ( <i class="fa fa-sun"></i> : Luminosité ) </i>
+    
+    
+    
+    </nb-card-header>
+    <nb-card-body style="max-height: 650px;">
+    <table class="table_">
+     
+  <tbody [style]="CapteurInstall ? 'height: 100px;' : 'height: 210px;' ">
+    <tr  style="      background: aliceblue;  "  >
+      <td style="width: 80px !important;"><b>Exploitation</b></td>
+      <td ><b>Capteur</b></td>
+      <td style="width: 40px !important;"><b>Type</b></td>
+      <td><b>Propriétaire</b></td>
+      <td><b>Date d'installation</b> </td>
+      <td style="width: 60px !important;"><b>Parcelle</b></td>
+      <td style="width: 45px !important;"><b>X</b></td>
+      <td style="width: 45px !important;"><b>Y</b></td>
+    </tr>
+    
+    <tr  *ngFor="let c of Capteur_Table ; let i = index" >
+      <td style="width: 80px !important;">{{ c.matriculeexploitation}}</td>
+      <td >{{c.id_capteur}}</td>
+      <td style="width: 40px !important;"><b [innerHTML]="icon_mesure[i]" ></b></td>
+      <td>{{c.proprietaire}} </td>
+      <td>{{ c.date_installation | date : 'dd/MM/yyyy' }} </td>
+      <td style="width: 60px !important;">{{ c.id_parcelle }}</td>
+      <td style="width: 45px !important;">{{ c.x}}</td>
+      <td style="width: 45px !important;">{{ c.y }}</td>
+    </tr>
+    <tr  *ngIf="CapteurInstall"  >
+      
+      <td  >Aucun Capteur Installé</td>
+    </tr>
+      </tbody>
+  </table> 
+  </nb-card-body>
+  </nb-card>  -->
+  
+
+<!-- </div> -->
+
+
+<!-- <ngx-news></ngx-news> -->
+
+<br>
+
+

@@ -1,0 +1,384 @@
+
+
+
+
+
+<div >
+    <div  class="ngx-popup-form-body">
+        
+           <nb-card>
+             <nb-card-header >
+               <h6><i class="fas fa-id-card"></i> <b>&nbsp; &nbsp;  Informations personelles </b></h6>
+              </nb-card-header>
+             <nb-card-body>
+
+
+
+
+
+
+ 
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Nom</label>
+                    <input class=" form-control capteurInput" type="text" name="nom" id="nom"  value="{{newpp.nom}}"  [(ngModel)]="newpp.nom"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">Prénom</label>
+                    <input class="form-control  capteurInput" type="text" name="prenom"  id="prenom" value="{{newpp.prenom}}"  [(ngModel)]="newpp.prenom" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputAddress">Email</label>
+                  <input class=" form-control  capteurInput" type="text" name="email" id="email"  value="{{newpp.email}}"  [(ngModel)]="newpp.email"  required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputAddress2">Téléphone</label>
+                  <input class="form-control  capteurInput" type="text" name="gsm"  id="gsm" value="{{newpp.gsm}}"  [(ngModel)]="newpp.gsm" required>
+                </div>
+              </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputAddress2">Numéro de la CIN</label>
+                    <input class=" form-control  capteurInput" type="text" name="cin" id="cin" value="{{newpp.cin}}"  [(ngModel)]="newpp.cin" required>
+                  </div>
+                  
+              </div>
+              <!-- <button class="btn btn-primary"  [routerLink]="['/pages/Adminstrator/compte']" (click)="soumettrePP(newpp)" > Soumettre </button> -->
+              
+
+
+
+
+
+
+
+
+
+
+
+
+              <!-- <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <td > Nom :</td>
+                  <td  ><input class=" form-control form-control-sm capteurInput" type="text" name="nom" id="nom"  value="{{newpp.nom}}"  [(ngModel)]="newpp.nom"  required>
+                  </td>
+                   
+                  <td>Prénom :</td>
+                  <td><input class="form-control form-control-sm capteurInput" type="text" name="prenom"  id="prenom" value="{{newpp.prenom}}"  [(ngModel)]="newpp.prenom" required>
+                  </td>
+                   
+                </tr>  
+                
+                <tr>
+                  <td > Email :</td>
+                  <td  ><input class=" form-control form-control-sm capteurInput" type="text" name="email" id="email"  value="{{newpp.email}}"  [(ngModel)]="newpp.email"  required>
+                  </td>
+                   
+                  <td> Téléphone : </td>
+                  <td><input class="form-control form-control-sm capteurInput" type="text" name="gsm"  id="gsm" value="{{newpp.gsm}}"  [(ngModel)]="newpp.gsm" required>
+                  </td>
+                   
+                </tr> 
+
+                <tr >
+                  <td><input class=" form-control form-control-sm capteurInput" type="text" name="cin" id="cin" value="{{newpp.cin}}"  [(ngModel)]="newpp.cin" required> :</td>
+                  <td><input class=" form-control form-control-sm capteurInput" type="text" name="cin" id="cin" value="{{newpp.cin}}"  [(ngModel)]="newpp.cin" required></td>
+                </tr>
+
+              </tbody>
+            </table> -->
+             </nb-card-body>
+             <nb-card-footer>
+              <button class="btn btn-primary float-right"  [routerLink]="['/pages/Adminstrator/compte']" (click)="soumettrePP(newpp)" > Soumettre </button>
+             </nb-card-footer>
+           </nb-card> 
+
+
+           <nb-card *ngIf="pmbool">
+            <nb-card-header >
+              <h6><i class="far fa-building"></i> <b>&nbsp; &nbsp; Informations sur l'entreprise </b></h6>
+            </nb-card-header>
+            <nb-card-body>
+              
+
+
+
+
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">ICE</label>
+                  <input class=" form-control form-control-sm " type="text" name="ice" id="ice"    [(ngModel)]="newpm.ice"  required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Capital social</label>
+                  <input class="form-control form-control-sm " type="text" name="cap_soc"  id="cap_soc"   [(ngModel)]="newpm.cap_soc" required>
+                </div>
+              </div>
+              <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputAddress">Dénomination sociale</label>
+                <input class=" form-control form-control-sm " type="text" name="denom_soc" id="denom_soc"   [(ngModel)]="newpm.denomination" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputAddress2">Forme juridique</label>
+                <input class=" form-control form-control-sm " type="text" name="forme_jur" id="forme_jur"   [(ngModel)]="newpm.forme_juridique" required>
+              </div>
+            </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputAddress2">Numéro du registre social</label>
+                  <input class=" form-control  capteurInput" type="text" name="cin" id="cin" value="{{newpp.cin}}"  [(ngModel)]="newpp.cin" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputAddress2">Numéro du registre social</label>
+                  <input class=" form-control form-control-sm " type="text" name="num_rc" id="num_rc"   [(ngModel)]="newpm.num_rc" required>
+                </div>
+            </div> 
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputAddress2">Id fiscal </label>
+                <input class=" form-control form-control-sm " type="text" name="id_fiscal" id="id_fiscal"   [(ngModel)]="newpm.id_fiscal" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputAddress2">Télephone société</label>
+                <input class=" form-control form-control-sm " type="text" name="fixe" id="fixe"   [(ngModel)]="newpm.fixe" required>
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputAddress2">Adresse</label>
+              <input class=" form-control form-control-sm " type="text" name="adresse" id="adresse"   [(ngModel)]="newpm.adresse" required>
+            </div>
+            
+        </div>
+        
+
+
+
+
+
+
+
+              <!-- <table class="table table-striped">
+                <tbody>
+                  <tr>
+                    <td > ice :</td>
+                    <td  ><input class=" form-control form-control-sm " type="text" name="ice" id="ice"    [(ngModel)]="newpm.ice"  required>
+                    </td>                 
+                    <td>capital social :</td>
+                    <td><input class="form-control form-control-sm " type="text" name="cap_soc"  id="cap_soc"   [(ngModel)]="newpm.cap_soc" required>
+                    </td>                  
+                  </tr>                
+                 
+                  <tr >
+                   <td>Dénomination sociale :</td>
+                   <td><input class=" form-control form-control-sm " type="text" name="denom_soc" id="denom_soc"   [(ngModel)]="newpm.denomination" required></td>
+   
+                   <td>Forme juridique :</td>
+                   <td><input class=" form-control form-control-sm " type="text" name="forme_jur" id="forme_jur"   [(ngModel)]="newpm.forme_juridique" required></td>
+                 </tr>
+                 <tr >
+                   <td>Numéro du registre social :</td>
+                   <td><input class=" form-control form-control-sm " type="text" name="num_rc" id="num_rc"   [(ngModel)]="newpm.num_rc" required></td>
+                   <td>Id fiscal :</td>
+                   <td><input class=" form-control form-control-sm " type="text" name="id_fiscal" id="id_fiscal"   [(ngModel)]="newpm.id_fiscal" required></td>
+                 </tr>
+                 <tr >
+                   <td>Télephone société :</td>
+                   <td><input class=" form-control form-control-sm " type="text" name="fixe" id="fixe"   [(ngModel)]="newpm.fixe" required></td>
+                   <td>Adresse :</td>
+                   <td><input class=" form-control form-control-sm " type="text" name="adresse" id="adresse"   [(ngModel)]="newpm.adresse" required></td>
+                 </tr>
+                </tbody>
+              </table> -->
+            </nb-card-body>
+            <nb-card-footer>
+              <button class=" float-right btn btn-primary"  [routerLink]="['/pages/Adminstrator/compte']" (click)="soumettrePM(newpm)" > Soumettre </button>
+            </nb-card-footer>
+          </nb-card> 
+
+
+          <nb-card *ngIf="pmboolstatique">
+            <nb-card-header >
+              <h6><i class="far fa-building"></i> <b>&nbsp; &nbsp; <u> Informations sur l'entreprise : </u> </b></h6>
+            </nb-card-header>
+            <nb-card-body>
+              
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">ICE</label>
+                  <input class=" form-control form-control-sm " type="text" name="ice" id="ice"    [(ngModel)]="newpm.ice"  disabled>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Capital social</label>
+                  <input class="form-control form-control-sm " type="text" name="cap_soc"  id="cap_soc"   [(ngModel)]="newpm.cap_soc" disabled>
+                </div>
+              </div>
+              <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputAddress">Dénomination sociale</label>
+                <input class=" form-control form-control-sm " type="text" name="denom_soc" id="denom_soc"   [(ngModel)]="newpm.denomination" disabled>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputAddress2">Forme juridique</label>
+                <input class=" form-control form-control-sm " type="text" name="forme_jur" id="forme_jur"   [(ngModel)]="newpm.forme_juridique" disabled>
+              </div>
+            </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputAddress2">Numéro du registre social</label>
+                  <input class=" form-control  capteurInput" type="text" name="cin" id="cin" value="{{newpp.cin}}"  [(ngModel)]="newpp.cin" disabled>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputAddress2">Numéro du registre social</label>
+                  <input class=" form-control form-control-sm " type="text" name="num_rc" id="num_rc"   [(ngModel)]="newpm.num_rc" disabled>
+                </div>
+            </div> 
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputAddress2">Id fiscal </label>
+                <input class=" form-control form-control-sm " type="text" name="id_fiscal" id="id_fiscal"   [(ngModel)]="newpm.id_fiscal" disabled>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputAddress2">Télephone société</label>
+                <input class=" form-control form-control-sm " type="text" name="fixe" id="fixe"   [(ngModel)]="newpm.fixe" disabled>
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputAddress2">Adresse</label>
+              <input class=" form-control form-control-sm " type="text" name="adresse" id="adresse"   [(ngModel)]="newpm.adresse" disabled>
+            </div>
+            
+        </div>
+
+             <!-- <table class="table table-striped">
+             <tbody>
+               <tr>
+                 <td > ice :</td>
+                 <td  ><input class=" form-control form-control-sm " type="text" name="ice" id="ice"    [(ngModel)]="newpm.ice"  disabled>
+                 </td>                 
+                 <td>capital social :</td>
+                 <td><input class="form-control form-control-sm " type="text" name="cap_soc"  id="cap_soc"   [(ngModel)]="newpm.cap_soc" disabled>
+                 </td>                  
+               </tr>                
+                
+               <tr >
+                <td>Dénomination sociale :</td>
+                <td><input class=" form-control form-control-sm " type="text" name="denom_soc" id="denom_soc"   [(ngModel)]="newpm.denomination" disabled></td>
+
+                <td>Forme juridique :</td>
+                <td><input class=" form-control form-control-sm " type="text" name="forme_jur" id="forme_jur"   [(ngModel)]="newpm.forme_juridique" disabled></td>
+              </tr>
+              <tr >
+                <td>Numéro du registre social :</td>
+                <td><input class=" form-control form-control-sm " type="text" name="num_rc" id="num_rc"   [(ngModel)]="newpm.num_rc" disabled></td>
+                <td>Id fiscal :</td>
+                <td><input class=" form-control form-control-sm " type="text" name="id_fiscal" id="id_fiscal"   [(ngModel)]="newpm.id_fiscal" disabled></td>
+              </tr>
+              <tr >
+                <td>Télephone société :</td>
+                <td><input class=" form-control form-control-sm " type="text" name="fixe" id="fixe"   [(ngModel)]="newpm.fixe" disabled></td>
+                <td>Adresse :</td>
+                <td><input class=" form-control form-control-sm " type="text" name="adresse" id="adresse"   [(ngModel)]="newpm.adresse" disabled></td>
+              </tr>
+             </tbody>
+           </table> -->
+            </nb-card-body>
+          </nb-card> 
+ 
+          
+           <nb-card style="margin-top: 2%;">
+            <nb-card-header>
+              <h6><i class="fas fa-user-lock" ></i> <b>&nbsp; &nbsp;  Sécurité </b></h6>
+            </nb-card-header>
+              <nb-card-body>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputAddress2">Login</label>
+                    <input class="form-control form-control-sm capteurInput" type="text" name="login" id="login" value="{{newpp.login}}"  disabled>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputAddress2">Mot de passe</label>
+                    <input class="form-control form-control-sm capteurInput" type="password" name="password" id="password" value="{{newpp.password}}"   disabled>
+                  </div>
+              </div>
+
+                <!-- <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <td>Login</td>
+                      <td> <input class="form-control form-control-sm capteurInput" type="text" name="login" id="login" value="{{newpp.login}}"  disabled>
+                      </td>
+                      
+                      <td>Mot de passe</td>
+                      <td> <input class="form-control form-control-sm capteurInput" type="password" name="password" id="password" value="{{newpp.password}}"   disabled>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table> -->
+              </nb-card-body>
+              <nb-card-footer>
+                <ngx-popup-compte  [newcompte]='newcompte' [_id]='newcompte.id_user' #modal></ngx-popup-compte>
+ 
+                <button class="float-right btn btn-primary" (click)="openModal()">Changer MDP</button>
+    
+              </nb-card-footer>
+            </nb-card>
+            
+
+          <!-- <table class="table ">
+             
+            <tbody>
+                  
+              <tr>
+                <td>
+                    <label style=" margin-left: -10px; " class="capteur" for="Avertissement min">Avertissement min</label>
+           
+                    <input  style="    width:70%;"  class="form-control form-control-sm capteurInput" type="number" name="Avertissement min" id="Avertissement_min"  required>
+                </td>
+                <td>
+                    <label  style=" margin-left: -10px; "  class="capteur"  >Avertissement max</label>
+                    <input  style="    width:70%;"  class="form-control form-control-sm  capteurInput" type="number" name="Avertissement max" id="Avertissement_max"  required>
+                </td>
+                
+              </tr>
+ 
+              <tr>
+                <td style="    text-align:left;">
+                    <label class="capteur" >Critique min</label>
+                    
+                    <input style="    width:70%;" class="form-control form-control-sm capteurInput" type="number" name="Critique min" id="Critique_min"  required>
+                </td>
+                <td style="    text-align:left;" >
+                    <label class="capteur" >Critique max</label>
+                    <input style="    width:70%;" class="form-control form-control-sm capteurInput" type="number" name="Critique max" id="Critique_max" required>
+        </td>
+                
+              </tr>
+              
+            </tbody>
+          </table> -->
+
+        <!-- <button class="btn btn-primary" (click)="openModal(newcompte.usrid)"  > Changer </button>
+
+        
+          <ngx-popup-compte  [newcompte]='newcompte' [_id]='newcompte.usrid'>
+            <button (click)="closeModal(newcompte.usrid);">Fermer</button>   
+        </ngx-popup-compte> -->
+            <!-- (click)="" -->
+        
+
+           <!-- <ngx-popup-compte  [newcompte]='newcompte' [_id]='newcompte.usrid' #modal2></ngx-popup-compte> -->
+
+            <!-- <button (click)="openModal2()">Open Modal 2</button> -->
+
+
+    </div>
+</div>

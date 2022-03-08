@@ -1,0 +1,154 @@
+<nb-card class="card_fixed col-12">
+    <nb-card-body>
+        <div style="display: block ruby; grid-template-columns: auto auto; margin-left: 15%;">
+   
+          <div class="nav_fix" ><b>Exploitations : </b>  </div>
+       <ngx-select-exp2 style="float: left;" [selectedValue]="selectedEXP" [exploitation]="exploitation" (expSelected)="explSelected($event)"></ngx-select-exp2>
+       <div class="nav_fix" ><b>Parcelle representative : </b>  </div>
+       <!-- <nb-select  style="margin-left:20px;" class="float-left"  [placeholder]="'Id Pacelle : '+selectedParcelle+' '"  status="primary">
+        <nb-option  *ngFor="let i of Parcelle" [value]="i.id_parcelle" 
+        (click)="parcelleSelcted(i.id_parcelle)" >
+          {{'Id Parcelle : '+i.id_parcelle}}  </nb-option>
+         
+      </nb-select> -->
+      <input type="text" readonly="true" style="margin-left:20px;width: 190px;" class="form-control float-left"  [placeholder]="'Id Pacelle : '+selectedParcelle+' '"  status="primary"><br><br>
+        </div>
+
+    </nb-card-body>
+  </nb-card> 
+
+
+
+<div  class="row"> 
+
+  <div class="col-md-4" style="margin-top: 70px;float: left;" >
+    
+   
+        <nb-card style="      height: 93%;  "  class="headings-card">
+          <nb-card-header>
+            
+            Informations sur la parcelle representative
+          </nb-card-header>
+          <nb-card-body   >
+            <div class=" header">
+              <div>
+                <p>Exploitation</p>
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].id_exploitation }}
+              </div>
+            </div>
+            <div class="header">
+              <div>
+            <p>Parcelle</p>
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].id_parcelle }}
+              </div>
+            </div>
+            <div class="header">
+              <div>
+                <p>Culture</p>
+              </div>
+              
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].culture }}
+              </div>
+            </div>
+            <div class="header">
+              <div>
+                <p>Variante</p>
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].variete }}
+              </div>
+            </div>
+            <div class="header">
+              <div>
+                <p>Semi / Plantation</p>
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].date.semi }}
+              </div>
+            </div>
+            <div class="header">
+              <div>
+                <p>Date Début </p>
+               
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].date.debut}} 
+                
+               
+              </div>
+            </div>
+            <div class="header">
+              <div>
+                <p>Date Fin </p>
+                
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                
+                 {{getparcelle_data[0].date.fin }}
+               
+              </div>
+            </div>
+           
+              
+          </nb-card-body>
+        </nb-card>
+    </div>
+  
+     
+
+    <div class="col-md-8" style="margin-top: 70px;float: right;" >
+        
+      <ngx-leaflet [eventExploiatation]="exploitationSelected" [id_parcelle]="selectedParcelle"></ngx-leaflet>
+    
+      </div>
+
+</div>
+
+  <div   class="row" style="margin-bottom: -40px;">
+    <div class="col-md-6" *ngFor="let statusCard of statusCards">
+    
+      <ngx-status-card2 (nameEmitter)="receivename($event)" [name]="statusCard.name" [title2]="statusCard.title2" [title1]="statusCard.title1" [value1]="statusCard.value1" [value2]="statusCard.value2" [type]="statusCard.type" [src1]="statusCard.iconClass1" [src2]="statusCard.iconClass2">
+       
+      </ngx-status-card2>
+    </div>
+  </div>  
+  <!-- <h5> {{ MethodeJ_Output }} --   </h5>  -->
+  <!-- <button (click)="receivename($event)" > click</button> -->
+  <div class="row" > 
+   
+    <div class="col-md-12" style="padding: 0px 0px !important;">
+      
+      <!-- {{cardSettingsInfo | json}} -->
+ <ngx-table-data [MethodeJ_Output]="MethodeJ_Output" *ngFor="let statusCardInfo of cardSettingsInfo" 
+ [title1]="statusCardInfo.name1" [Moyenne1]="statusCardInfo.Moyenne1" [Maximum1]="statusCardInfo.Maximum1" [Minimum1]="statusCardInfo.Minimum1" [Ecart_type1]="statusCardInfo.Ecart_type1" [type]="statusCardInfo.type"
+ [title2]="statusCardInfo.name2" [Moyenne2]="statusCardInfo.Moyenne2" [Maximum2]="statusCardInfo.Maximum2" [Minimum2]="statusCardInfo.Minimum2" [Ecart_type2]="statusCardInfo.Ecart_type2"
+ [src1]="statusCardInfo.img1" [src2]="statusCardInfo.img2" [name]="statusCardInfo.name"    >
+  
+ </ngx-table-data>
+    </div>
+  </div>
+<div class="testt">
+  <nb-card class="col-md-6 float-left" style="margin-left:-9px">
+    <nb-card-header>Méthodes Jounalière</nb-card-header>
+    <nb-card-body style="padding-top: 3%;" >
+        <ngx-chart-module-conseils [MethodeJ_Output]="MethodeJ_Output" jourORmen="J" [data]="evapoDataChartDaily"  ></ngx-chart-module-conseils>
+    </nb-card-body>
+  </nb-card> 
+    <nb-card class="col-md-6 float-right" style="margin-left:15px">
+    <nb-card-header>Méthodes Mensuelles</nb-card-header>
+    <nb-card-body>
+        <ngx-chart-module-conseils [MethodeJ_Output]="MethodeJ_Output" jourORmen="M" [data]="evapoDataChartMonthly"></ngx-chart-module-conseils>
+    </nb-card-body>
+  </nb-card>   
+</div>  

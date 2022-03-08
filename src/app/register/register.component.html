@@ -1,0 +1,448 @@
+
+
+<main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+  <div class="container">
+    <div class="card login-card">
+      <div class="row no-gutters">
+        <div class="col-md-5">
+          <img src="../../assets/images/efM6raVcBv.jpg" alt="login" class="login-card-img">
+        </div>
+        <div class="col-md-7">
+          <div style="text-align: -webkit-center;" class="card-body">
+            <div class="brand-wrapper">
+              <img src="../../assets/images/logo-iot.png" alt="logo" class="logo">
+              
+            </div>
+            <h1 style="font-weight: bold;">AGRO-Start</h1>
+            
+    <div class="container">
+      <div class="mt-5 mb-5 text-center">
+        
+      </div>
+      <ul class="step d-flex flex-nowrap">
+      <li *ngIf="firstForm" class="step-item active" >
+        <a class="" >Etape 1</a>
+      </li>
+      <li *ngIf="!secondForm && firstForm"  class="step-item">
+        <a class="" >Etape 2</a>
+      </li>
+      <li *ngIf="!thirdForm && firstForm"  class="step-item">
+        <a class="" >Etape 3</a>
+      </li>
+
+
+      <li *ngIf="!firstForm && secondForm"  class="step-item" >
+        <a class="" >Etape 1</a>
+      </li>
+      <li *ngIf="secondForm"  class="step-item active">
+        <a class="" >Etape 2</a>
+      </li>
+      <li *ngIf="!thirdForm && secondForm" class="step-item">
+        <a class="" >Etape 3</a>
+      </li>
+
+      <li *ngIf="!firstForm && thirdForm" class="step-item" >
+        <a class="" >Etape 1</a>
+      </li>
+      <li *ngIf="!secondForm && thirdForm" class="step-item">
+        <a class="" >Etape 2</a>
+      </li>
+      <li *ngIf="thirdForm "  class="step-item active">
+        <a class="" >Etape 3</a>
+      </li>
+      <!-- <li [ngClass]="{'step-item active' : firstForm , 'step-item ' : !firstForm  }">
+        <a href="#!" class="">Etape 3</a>
+      </li>
+      <li class="step-item">
+        <a href="#!" class="">Step 4</a>
+      </li> -->
+    </ul> 
+     </div>
+
+            <div *ngIf="!bool && bool!= null" class="error-message" >Ce nom d'utilisateur existe déja</div>
+            <div *ngIf="!bool1 && bool1 !=null" class="error-message">Ce mail existe déja</div>
+
+
+            <div *ngIf="firstForm">
+              <table class="table borderless">
+                <tbody>
+                  <tr>
+                    
+                    <th colspan="2" >Informations d'authentification
+                    </th>                 
+                                   
+                  </tr>  
+                </tbody>
+              </table>
+ 
+  
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #form="ngForm" aria-labelledby="title" style="max-width: 520px;">
+
+            <div class="row">
+                <div class="form-group  col-6">
+                  <label for="username" class="sr-only">username (*)</label>
+                  <input formControlName="username" id="form-username" type="text"
+                  [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                  placeholder="Nom d'utilisateur..s." class="form-username form-control" value="f.username.value">
+                  
+                    <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >* Nom d'utilisateur requis</p>
+                 
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Nom d'utilisateur requis</div>
+                </div>
+
+                </div>
+
+                <div class="form-group col-6">
+                  <label for="email" class="sr-only">email (*)</label>
+                  <input formControlName="email" id="form-email" type="text"
+                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                  placeholder="email..." class="form-email form-control" value="f.email.value"  >
+                  <!-- ngModel email -->
+                  <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                    * Email requis</p>
+                 
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">email requis</div>
+                    <div *ngIf="f.email.errors.email">Email erroné, veuillez inserer une adresse mail valide</div>
+
+                </div>
+              </div>  
+            </div>
+                
+              
+              <div class="row">
+                <div class="form-group col-6">
+                  <label for="password" class="sr-only">Mot de passe (*)</label>
+                  <input id="form-password" formControlName="password" type="password"
+                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                  placeholder="Mot de passe..." class="form-password form-control" value="f.password.value">
+                  <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                    * Mot de passe requis</p>
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Mot de passe requis</div>                   
+                    
+                </div>
+                </div>
+                <!-- <input name="login" id="login" [disabled]="loading"  type="submit" class="btn btn-block login-btn mb-4" value="Register"> -->
+                <!-- <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> -->
+
+                <div class="form-group col-6">
+                  <label for="confirm" class="sr-only">Confirmation du mot de passe (*):</label>
+                  <input id="form-confirm" formControlName="confirmpassword" type="password"
+                  [ngClass]="{ 'is-invalid': submitted && f.confirmpassword.errors }"
+                  placeholder="Confirmation..." class="form-confirm form-control" value="f.confirmpassword.value">
+                  <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                    * Confirmation requis</p>
+                  <div *ngIf="submitted && f.confirmpassword.errors" class="invalid-feedback" >
+                    <div *ngIf="f.confirmpassword.errors.required">Confirmation requise</div>
+                    <div *ngIf="f.confirmpassword.errors.mustMatch">Mot de passe et confirmation doivent être identiques</div>
+
+
+                </div>
+                </div>
+              </div>
+
+                <div >
+                  <nb-card class="example-items-rows">
+                    <nb-card-body>
+                      <!-- <nb-checkbox status="primary" >PM</nb-checkbox> -->
+                      <div class="form-group">
+                        <table>
+                          <tr>
+                          <td>  
+                            <p style="margin-bottom: 0px;"><b>Appartenez vous à un organisme ?</b></p>                      
+                            <label  class="sr-only">Societé</label>
+                          </td>
+                          <td>
+                            <input id="checkbox-pm" type="checkbox" (change)="CheckboxPM($event)"> Oui   
+                          </td>                            
+                          </tr>
+
+                        </table>
+   
+                      </div>
+                      
+                    </nb-card-body>
+                  </nb-card>
+  
+  
+                    <!-- <input type="checkbox" name ="pm" [ngModel]="pm"/> -->
+                </div>
+                 <!-- <a *ngIf="bool1" [routerLink]="['/login']" class="text-reset"></a>  -->
+                <input *ngIf="!bool2" name="login" id="login" [disabled]="loading"  type="submit" class="btn btn-block login-btn mb-4" style = "background-color: #598527; width:52%;" value="Verifier" >
+                <button *ngIf="bool2" type="submit" (click)="Suivant()" class ="btn btn-block login-btn mb-4" >Suivant</button>
+                <!-- <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> -->
+
+
+                <section *ngIf="loading" >
+                  <div class="loading loading01">
+                    <span>A</span>
+                    <span>G</span>
+                    <span>R</span>
+                    <span>O</span>
+                    <span>-</span>
+                    <span>I</span>
+                    <span>o</span>
+                    <span>T</span>
+                  </div>
+                </section>
+
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+              </form>
+            </div>
+
+            <div *ngIf="secondForm">
+              <div class="error-message"> {{message}} </div>
+
+
+              <table class="table borderless">
+                <tbody>
+                  <tr>
+                    
+                    <th colspan="2" >Informations personelles
+                    </th>                 
+                                   
+                  </tr>  
+                </tbody>
+              </table>
+
+
+
+              <form [formGroup]="ppForm" (ngSubmit)="onSubmit1()" #form="ngForm" aria-labelledby="title">
+       
+                <div class="form-group">
+                  <label for="nom" class="sr-only">Nom :</label>
+                  <input formControlName="nom" id="form-nom" type="text"
+                  [ngClass]="{ 'is-invalid': submitted && f1.nom.errors }"
+                  placeholder="Nom ..." class="form-nom form-control">
+                  <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                    * Nom requis</p>
+                  <div *ngIf="submitted && f1.nom.errors" class="invalid-feedback">
+                    <div *ngIf="f1.nom.errors.required">Nom requis</div>
+                </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="prenom" class="sr-only">Prenom :</label>
+                  <input formControlName="prenom" id="form-prenom" type="text"
+                  [ngClass]="{ 'is-invalid': submitted && f1.prenom.errors }"
+                  placeholder="Prenom ..." class="form-prenom form-control">
+                  <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                    * Prénom requis</p>
+                  <div *ngIf="submitted && f1.nom.errors" class="invalid-feedback">
+                    <div *ngIf="f1.nom.errors.required">Prénom requis</div>
+                </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="gsm" class="sr-only">Numéro du GSM :</label>
+                  <input formControlName="gsm" id="form-gsm" type="text"
+                  [ngClass]="{ 'is-invalid': submitted && f1.gsm.errors }"
+                  placeholder="Gsm ..." class="form-gsm form-control">
+                  <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                    * Gsm requis</p>
+                  <div *ngIf="submitted && f1.gsm.errors" class="invalid-feedback">
+                    <div *ngIf="f1.gsm.errors.required">Gsm requis</div>
+                </div>
+                </div>  
+                <div class="form-group">
+                  <label for="cin" class="sr-only">CIN :</label>
+                  <input formControlName="cin" id="form-cin" type="text"
+                  [ngClass]="{ 'is-invalid': submitted && f1.cin.errors }"
+                  placeholder="CIN ..." class="form-cin form-control">
+                  <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                    * CIN requis</p>
+                  <div *ngIf="submitted && f1.cin.errors" class="invalid-feedback">
+                    <div *ngIf="f1.cin.errors.required">CIN requis</div>
+                </div>
+                </div>                
+
+                <input *ngIf="!bool2" name="pp" id="pp" [disabled]="loading"  type="submit" class="btn btn-block login-btn mb-4" style = "background-color: #598527; width:52%;" value="Vérifier" >
+                <button *ngIf="bool2" type="submit" (click)="Suivant1()" class ="btn btn-block login-btn mb-4" >Suivant</button>
+
+
+                <section *ngIf="loading" >
+                  <div class="loading loading01">
+                    <span>A</span>
+                    <span>G</span>
+                    <span>R</span>
+                    <span>O</span>
+                    <span>-</span>
+                    <span>I</span>
+                    <span>o</span>
+                    <span>T</span>
+                  </div>
+                </section>
+
+
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+              </form>
+
+              <!-- <form></form> -->
+
+
+            </div>
+
+
+
+            <div *ngIf="thirdForm">
+                        <div *ngIf="pm == 'Societé'"> 
+                          <div>
+                            <p>
+                              Votre organisme est il deja inscris ?
+                            </p>                           
+                            <input id="checkbox-org" type="checkbox" (change)="checkboxorg($event)"> Oui
+                            <p>
+                              Veuillez verifier dans la liste suivante :
+                            </p>   
+                            <select name="listorg" id="listorg" [(ngModel)]=exorg>
+                              <option value="0"> Aucun organisme </option>
+
+                            </select>
+                            
+                          </div>
+                          <div *ngIf="existeorg == false">
+                          <form [formGroup]="pmForm" (ngSubmit)="OnSubmit2()" #form="ngForm" aria-labelledby="title" style="max-width: 520px;">
+                            <!-- <tr>
+                              <td>  
+                                <p style="margin-bottom: 0px;"><b>Votre organisme exite il dans cette liste?</b></p>                      
+                                <label  class="sr-only">Societé</label>
+                              </td>
+                              <td>
+                                <input id="checkbox-pm" type="checkbox" (change)="CheckboxPM($event)"> Oui   
+                              </td>                            
+                              </tr>. -->
+                            <table class="table borderless" >
+                              <tbody>
+                                <tr>
+                                  
+                                  <th colspan="2" >Informations sur l'entreprise
+                                  </th>                 
+                                                 
+                                </tr>  
+                                <tr>
+                                  <!-- <td > ice :</td> -->
+                                  <td  ><input class=" form-control form-control-sm " formControlName="ice" placeholder="ICE" type="text" name="ice" id="ice"      required>
+                                    <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                                      * requis</p>
+                                  </td>                 
+                                  <!-- <td>capital social :</td> -->
+                                  <td><input class="form-control form-control-sm " formControlName="cap_soc" placeholder="Capital social" type="text" name="cap_soc"  id="cap_soc"     required>
+                                    <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                                      * requis</p>
+                                  </td>                  
+                                </tr>                
+                                
+                                <tr >
+                                 <!-- <td>Dénomination sociale :</td> -->
+                                 <td><input class=" form-control form-control-sm " formControlName="denomination" placeholder="Dénomination sociale" type="text" name="denomination" id="denomination"     required>
+                                  <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                                    * requis</p></td>
+                 
+                                 <!-- <td>Forme juridique :</td> -->
+                                 <td><input class=" form-control form-control-sm " formControlName="forme_juridique" placeholder="Forme juridique" type="text" name="forme_juridique" id="forme_juridique"    required>
+                                  <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                                    * requis</p></td>
+                               </tr>
+                               <tr >
+                                 <!-- <td>Numéro du registre social :</td> -->
+                                 <td><input class=" form-control form-control-sm " formControlName="num_rc" placeholder="Numéro du registre social" type="text" name="num_rc" id="num_rc"   required> <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                                  * requis</p></td>
+                                 <!-- <td>Id fiscal :</td> -->
+                                 <td><input class=" form-control form-control-sm " formControlName="id_fiscal" placeholder="Id fiscal" type="text" name="id_fiscal" id="id_fiscal"   required> <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                                  * requis</p></td>
+                               </tr>
+                               <tr >
+                                 <!-- <td>Télephone société :</td> -->
+                                 <td><input class=" form-control form-control-sm " formControlName="fixe" placeholder="Télephone société" type="text" name="fixe" id="fixe"   required> <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                                  * requis</p></td>
+                                 <!-- <td>Adresse :</td> -->
+                                 <td><input class=" form-control form-control-sm " formControlName="adresse" placeholder="Adresse" type="text" name="adresse" id="adresse"    required> <p *ngIf="!submitted" style="text-align: left;margin: 0;padding: 0;margin-top: -13px;font-size: 12px;"  >
+                                  * requis</p></td>
+                               </tr>
+                              </tbody>
+                            </table>
+
+
+
+                      <input *ngIf="!bool2" name="pmo" id="pmo" [disabled]="loading"  type="submit" class="btn btn-block login-btn mb-4" style = "background-color: #598527; width:52%;" value="Vérifier" >
+                      <button *ngIf="bool2" (click)="Terminer()" class ="btn btn-block login-btn mb-4" > Terminer </button>
+                      
+                      <section *ngIf="loading" >
+                        <div class="loading loading01">
+                          <span>A</span>
+                          <span>G</span>
+                          <span>R</span>
+                          <span>O</span>
+                          <span>-</span>
+                          <span>I</span>
+                          <span>o</span>
+                          <span>T</span>
+                        </div>
+                      </section>
+
+                      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+
+                      </form>
+                    </div>
+                    <!-- </div>
+            </div>
+
+            <div *ngIf="fourthForm">
+              <p>Votre compte a été crée avec succès, <br><b>veuillez vous reconnecter et créez votre première exploitation</b>
+              <br>
+              <a [routerLink]="['/login']">Se Connecter</a>
+              </p>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div> -->
+      
+  </div>
+
+
+
+  <div *ngIf="pm != 'Societé'">
+    <p>Votre compte a été crée avec succès, <br><b>veuillez vous reconnecter et créez votre première exploitation</b>
+      <br>
+      <a [routerLink]="['/login']">Se Connecter</a>
+      </p>
+  </div>
+</div>
+<!-- <div class="card login-card">
+      <img src="assets/images/login.jpg" alt="login" class="login-card-img">
+      <div class="card-body">
+        <h2 class="login-card-title">Login</h2>
+        <p class="login-card-description">Sign in to your account to continue.</p>
+        <form action="#!">
+          <div class="form-group">
+            <label for="email" class="sr-only">email</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="email">
+          </div>
+          <div class="form-group">
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+          </div>
+          <div class="form-prompt-wrapper">
+            <div class="custom-control custom-checkbox login-card-check-box">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Remember me</label>
+            </div>              
+            <a href="#!" class="text-reset">Forgot password?</a>
+          </div>
+          <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
+        </form>
+        <p class="login-card-footer-text">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
+      </div>
+    </div> -->
+<!-- </main> -->
+<a href="#!" class="forgot-password-link">J'ai perdu mon mot de passe!</a>
+<p class="login-card-footer-text">Vous avez un compte ? <a [routerLink]="['/login']" class="text-reset">Login</a></p>
+<nav class="login-card-footer-nav">
+  <a href="#!">Conditions d'utilisation.</a>
+  <a href="#!">Politique de confidentialité</a>
+</nav>

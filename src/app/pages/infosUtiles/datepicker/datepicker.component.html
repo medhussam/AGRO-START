@@ -1,0 +1,16 @@
+<div class="row d-flex justify-content-center">
+  <div class="date-picker-wrapper">
+
+    <igx-date-picker [value]="dateDebut" (onSelection)="selectionFrom($event)" [formatter]="formatterFrom"
+      [modalOverlaySettings]="{ outlet: element }">
+      <label igxLabel>Date Début </label>
+    </igx-date-picker>
+  </div>
+
+  <div class="date-picker-wrapper">
+    <igx-date-picker [value]="dateFin" (onSelection)="selectionTo($event)" [formatter]="formatterTo"
+      [modalOverlaySettings]="{ outlet: element }">
+      <label igxLabel>Date Fin </label>
+    </igx-date-picker>
+  </div>
+</div>

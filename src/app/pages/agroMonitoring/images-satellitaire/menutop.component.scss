@@ -1,0 +1,178 @@
+@import '../../../@theme/styles/themes';
+ 
+
+.card_fixed {
+  position: fixed;
+  color: white;
+  z-index: 1001;
+  width: 90%;
+  background-image: linear-gradient(to right, #94cbff, #42aaff);
+  top: 77px;
+  border: 1px solid #0296ff;
+  left: 236px;
+  
+}
+.leaflet-agro {
+  height: 20.2rem !important;
+}
+
+
+.nav_fix{
+
+  margin: 10px 2% 10px 3% !important;float:left;
+
+@media (max-width: 1360px) { 
+  margin:8px 6px 8px 21% !important;
+}
+
+@media (max-width: 1097px) { 
+  margin:8px 6px 8px 6% !important;
+}
+}
+
+.zindex{
+  z-index: 99;
+}
+
+.headings-card {
+  h1 {
+    margin: 0;
+  }
+
+  .header {
+    
+        padding-bottom: 12.5px;
+        margin-bottom: 5px;
+    
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+} 
+.item1{
+  width: 44px;
+  float: left;
+  }
+
+  .tem2{
+    
+    }
+    
+
+
+p.dif{
+  font-size: 14px;
+  margin-bottom: 5px ;
+  font-weight: 600;
+  
+}
+
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid nb-theme(divider-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  div:first-child {
+    flex: 2;
+    -ms-flex: 2 1 auto;
+    line-height: 1;
+    align-items: flex-end;
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 0;
+    }
+  }
+
+  .variants {
+    flex: 1;
+    -ms-flex: 1 1 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    span {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  .detail {
+    flex: 1;
+    display: flex;
+    font-weight: bold;
+  }
+}
+
+.colors {
+  display: flex;
+  flex-direction: column;
+
+  .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+
+@import "~igniteui-angular/lib/core/styles/themes/index";
+
+.date-picker-wrapper {
+    padding: 1rem;
+    max-width: 600px;
+}
+
+$custom-datepicker-theme: igx-calendar-theme(
+    $header-background: #33b7eb,
+    $content-background: #fdfdfd,
+    $header-text-color: #ffffff,
+    $date-current-text-color: #ffffff,
+    $picker-arrow-color: #2dabe8,
+    $date-selected-text-color: #fdfdfd,
+    $date-current-bg-color: #fdfdfd,
+    $picker-arrow-hover-color: #5dbbe7,
+    $year-current-text-color: #2dabe8,
+    $year-hover-text-color: #2dabe8,
+    $month-current-text-color: #2dabe8,
+    $month-hover-text-color: #2dabe8,
+    $picker-text-color: #2dbce85e,
+    $picker-text-hover-color: #59d4f3,
+);
+
+
+// :host {
+//     @include igx-css-vars($custom-datepicker-theme);
+// }
+
+/* Using Theme Overrides to provide IE 11 support.
+ * NOTE: Theming using this approach will greatly increase the size
+ * of the output CSS. If you do not plan to target IE 11,
+ * delete this section and use the `igx-css-vars` mixin as shown above.
+**/
+:host ::ng-deep {
+    @include igx-calendar($custom-datepicker-theme);
+}
+
+
+ ::ng-deep .clouds {
+  position: absolute;
+  right: 89px;
+  top: 34%;
+  color: white !important;
+  font-weight: 900 !important;
+}
+
+

@@ -1,0 +1,33 @@
+.container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 190px;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+
+    @media (max-width : 560px){
+      left: 0%;
+   }
+
+   @media (min-width : 560px){
+       left:10%; 
+   } 
+
+   @media (min-width: 1200px) {
+       left:15%; 
+   }
+  }
+  
+  .content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 450px;
+  }

@@ -1,0 +1,6 @@
+<nb-select  style="margin-left:19px" class="float-right"   [placeholder]="selectedValue+' (ParDéfaut)'"   status="primary">
+    <!-- <nb-option (click)="changeExploitation('all')" >Toutes les exploitaions</nb-option> -->
+    <nb-option (click)="changeExploitation(exp.properties.id_exploitation)"
+       *ngFor="let exp of exploitation" [value]="exp.properties.id_exploitation">
+       {{ exp.properties.matricule }}</nb-option>
+  </nb-select>

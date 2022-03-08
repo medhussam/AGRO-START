@@ -1,0 +1,296 @@
+
+
+  <div class="container" style="margin-top: 70px;">
+
+    <nb-card class="card_fixed col-12">
+       <nb-card-body>
+           <div style="display: block ruby; grid-template-columns: auto auto">
+   
+       
+         
+         
+         <!--                                                 date                                                   -->
+         
+   
+         <nb-select  style="margin-right: 120px; margin-left:10px;width: 80%;" class="float-right" [(selected)]="date0"  [placeholder]="convert(date0)" status="primary">
+          <nb-option  *ngFor="let date of dateParcelle,let i = index" (click)="changeDate(date.time)"[value]="date.time">
+              {{ convert(date.time) }} 
+              <p style="padding-left: 35px;"> {{ (date.cloud_coverage) }}% &#9729;</p>
+            </nb-option>
+         </nb-select>  <!---->
+   
+         <!--                                                  Indice                                             -->
+   
+         <nb-select  style="margin-left:10px;width: 80%;" class="float-right"  [placeholder]="'True color (Indice ParDéfaut)'" status="primary">
+           <nb-option   *ngFor="let i of indices" (click)="changeIndice(i.indice)"[value]="i.indice" >
+              {{i.name}}</nb-option>
+         </nb-select>
+   
+         <!--                                                  exploitations                                                   -->
+         <nb-select  style="width: 80%;" class="float-left"  [placeholder]="selectedValue+' (ParDéfaut)'"  status="primary">
+           <nb-option *ngFor="let exploitation of exploitations"
+            (click)="changeExploitation(exploitation.id_exploitation)"
+             
+               [value]="exploitation.id_exploitation">
+              {{ exploitation.matricule }}</nb-option>
+         </nb-select>
+     
+
+         <nb-select  style="margin-left:10px;width: 80%;" class="float-left" [(selected)]="selectedParcelle" [placeholder]="'Id Pacelle : '+selectedParcelle+' (ParDéfaut)'"  status="primary">
+          <nb-option *ngFor="let i of Parcelle" [value]="i.id_parcelle"  
+          (click)="changeParcelle(i.id_parcelle)"
+          >
+            {{'Id Parcelle : '+i.id_parcelle}}  </nb-option>
+            
+        </nb-select>
+           </div>
+         
+       </nb-card-body>
+     </nb-card> 
+   
+   </div>
+   
+    
+   
+   <div class="row">
+   
+     
+   <div class="col-12">
+   
+     <div style="height: auto;">
+       <ngx-agroMonitoringMap [allImageryData]="allImageryData"  [selectedParcelle]="selectedParcelle" [ExploitationEvent]="ExploitationEvent" [IndiceEvent]="IndiceEvent" [DateEvent]="DateEvent" ></ngx-agroMonitoringMap> 
+     </div>
+          
+   </div> 
+       
+   
+   
+   </div> 
+   
+   
+  <div class="row">
+    <div  class=" float-left col-4">
+
+    </div>
+    <!-- {{Carto_current_data  | json}} --> 
+    <div class="float-right col-8">
+    
+    </div>
+  </div>
+    <div class="row">
+      <div  class=" float-left col-4">
+      
+        <nb-card  class="headings-card">
+          <nb-card-header>
+            
+            Informations sur parcelle séléctionné
+          </nb-card-header>
+          <nb-card-body>
+            <div class=" header">
+              <div>
+                <p>Exploitation</p>
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].id_exploitation }}
+              </div>
+            </div>
+            <div class="header">
+              <div>
+            <p>Parcelle</p>
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].id_parcelle }}
+              </div>
+            </div>
+            <div class="header">
+              <div>
+                <p>Culture</p>
+              </div>
+              
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].culture }}
+              </div>
+            </div>
+            <div class="header">
+              <div>
+                <p>Variante</p>
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].variete }}
+              </div>
+            </div>
+            <div class="header">
+              <div>
+                <p>Semi / Plantation</p>
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].date.semi }}
+              </div>
+            </div>
+            <div class="header">
+              <div>
+                <p>Date Début </p>
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+                {{getparcelle_data[0].date.debut}} 
+              </div>
+            </div>
+            <div class="header">
+              <div>
+                <p> Date Fin</p>
+              
+              </div>
+    
+              <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+               
+                 {{getparcelle_data[0].date.fin }}
+               
+              </div>
+            </div>
+           
+              
+          </nb-card-body>
+        </nb-card>
+
+
+        <nb-card class="headings-card">
+          <nb-card-header>
+            
+            Statistique : {{dateNOW }}  
+            <div class="float-right">
+              </div> 
+          </nb-card-header>
+          <nb-card-body *ngIf="!isEmptyObject(Carto_current_data)">
+            <div class=" header">
+              <div>
+                <p></p>
+              </div>
+              <div  class="detail">NDVI </div>
+              <div  class="detail ">DSWI </div>
+              <div class="detail">EVI </div>
+               <div class="detail">EVI2 </div>
+               <div class="detail">NDWI </div>
+               <div class="detail">NRI  </div>
+               
+            </div>
+            <div class=" header">
+              <div> <p>Maximum</p> </div>
+      
+              <div  class="detail">{{Carto_current_data['ndvi'].maximum}}</div>
+              <div class="detail">{{Carto_current_data['dswi'].maximum}}</div>
+              <div class="detail">{{Carto_current_data['evi'].maximum}}</div>
+              <div  class="detail">{{Carto_current_data['evi2'].maximum}}</div>
+              <div class="detail">{{Carto_current_data['ndwi'].maximum}}</div>
+              <div class="detail">{{Carto_current_data['nri'].maximum}}</div>
+              
+               
+            </div>
+            
+            <div class="header">
+              <div><p>Moyenne</p></div>
+      
+              <div  class="detail">{{Carto_current_data['ndvi'].mean}}</div>
+              <div class="detail">{{Carto_current_data['dswi'].mean}}</div>
+              <div class="detail">{{Carto_current_data['evi'].mean}}</div>
+              <div  class="detail">{{Carto_current_data['evi2'].mean}}</div>
+              <div class="detail">{{Carto_current_data['ndwi'].mean}}</div>
+              <div class="detail">{{Carto_current_data['nri'].mean}}</div>
+      
+            </div>
+            <div class="header">
+              <div><p>minmum	</p></div>
+              
+              <div  class="detail">{{Carto_current_data['ndvi'].minimum}}</div>
+              <div class="detail">{{Carto_current_data['dswi'].minimum}}</div>
+              <div class="detail">{{Carto_current_data['evi'].minimum}}</div>
+              <div  class="detail">{{Carto_current_data['evi2'].minimum}}</div>
+              <div class="detail">{{Carto_current_data['ndwi'].minimum}}</div>
+              <div class="detail">{{Carto_current_data['nri'].minimum}}</div>
+            </div>
+            <div class="header">
+              <div><p>Déviation</p></div>
+      
+              <div  class="detail">{{Carto_current_data['ndvi'].deviation}}</div>
+              <div class="detail">{{Carto_current_data['dswi'].deviation}}</div>
+              <div class="detail">{{Carto_current_data['evi'].deviation}}</div>
+              <div  class="detail">{{Carto_current_data['evi2'].deviation}}</div>
+              <div class="detail">{{Carto_current_data['ndwi'].deviation}}</div>
+              <div class="detail">{{Carto_current_data['nri'].deviation}}</div>
+            </div>
+            <div class="header">
+              <div></div>
+      
+           
+            </div>
+              
+          </nb-card-body>
+        <nb-card-footer>
+       
+          <p class="dif item1"><b>NDVI</b></p><p class="dif item2">: Normalized difference vegetation index</p>
+          <p class="dif item1"><b>EVI</b></p><p class=" dif item2 ">: Enhanced vegetation index</p>
+          <p class="dif item1"><b>EVI2</b></p><p class="dif item2 ">: 2-bands EVI</p>
+          <p class="dif item1"><b>NDWI</b></p><p class="dif item2 ">: Normalized difference water index</p>
+          <p class="dif item1"><b>DSWI</b></p><p class="dif item2 ">: Desease Water Stress Index</p>
+          <p class="dif item1"><b>NRI</b></p><p class="dif item2 ">: Nitrogen Reflectance Index</p>
+  
+           
+      </nb-card-footer>
+        </nb-card>
+
+
+
+
+      </div>
+      <!---- {{cloud_coverage  | json}} -->
+         
+        <div class="float-right col-8">
+
+
+
+          <nb-card>
+            <nb-card-body>
+           
+          
+          <ngx-chart-ndvi   [id_Parcelle]="selectedParcelle"  [Carto_data]="Carto_data" [measurement]="measurement" ></ngx-chart-ndvi>
+        </nb-card-body>
+      </nb-card>
+          
+          <nb-card>
+            <nb-card-body>
+          
+              
+            <div class="row d-flex justify-content-center " >
+              <div class="date-picker-wrapper">
+                
+                <igx-date-picker  [value]="Datedebut_" (onSelection)="selectFrom($event)"   [formatter]="formatterFrom" [modalOverlaySettings]="{ outlet: element }">
+                  <label igxLabel>Date début</label>
+                </igx-date-picker>
+            </div>
+            <div class="date-picker-wrapper">
+          
+              <igx-date-picker [value]="Datefin_" (onSelection)="selectTo($event)"  [formatter]="formatterTo" [modalOverlaySettings]="{ outlet: element }">
+                <label igxLabel>Date fin</label>
+              </igx-date-picker>
+          </div>
+            </div>
+             </nb-card-body>
+          </nb-card>
+      <nb-card>
+        <nb-card-body>
+          <ngx-chart-compar-parcelles [NombreParcelle]="Parcelle.length" [Parcelle]="ParcellesID" [id_Parcelle]="selectedParcelle" [parcelleIndexes]="parcelleIndexes" [measurement]="measurement" ></ngx-chart-compar-parcelles>
+          </nb-card-body>
+      </nb-card>
+      </div>
+    </div>
+
+
+
+
+
+
+ 

@@ -1,0 +1,63 @@
+
+<div *ngIf="graphbool">  
+   <!-- <nb-tabset style="background-color: white;" fullWidth>-->
+        <!--<nb-tab style="overflow: hidden;padding: 25px 0px 25p 25px;" [tabIcon]="Rcon" tabTitle="Historique des valeurs récentes du barrage" [lazyLoad]="false">
+            <div class="chart-container">
+                <highcharts-chart 
+                id="container" 
+                [Highcharts]="Highcharts"
+                [constructorType]="chartConstructor"
+                [options]="chartOptions"
+                [callbackFunction]="chartCallback"
+                [(update)]=updateFromInput
+                [oneToOne]="true"
+                style="width: 100%; height: 400px; display: block;">
+                </highcharts-chart>
+ 
+            </div>          
+            <b>Pourcentage de remplissage</b>
+            <label  (change)="changeTAUX()" class="switch" for="checkbox">
+                <input  type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+                <b>Capacité retenue en Mm3</b>
+        </nb-tab>-->
+
+
+       <!-- <nb-tab [tabIcon]="Hiscon" tabTitle="Historique complète des valeurs du barrage" [lazyLoad]="false" class = "tabhistory">-->
+            
+<nb-card>
+    <ngx-historychart [datagraph1]="datagraph1"  [barrageinfo1]="barrageinfo1" [checktaux]="checkTAUX" [titreY]="titreY"></ngx-historychart>
+<nb-card-footer>
+    <b>Taux de remplissage (%)</b>
+    <label  (change)="changeTAUX()" class="switch" for="checkbox">
+        <input  type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+    </label>
+        <b>Capacité retenue (Mm3)</b>
+
+
+        <div *ngIf="datagraph1" class="dates" >
+            <ngx-datepicker1  [dateDebut]="datedebutSelected" (dateFrom)="dateFrom($event)" (dateTo)="dateTo($event)" ></ngx-datepicker1>
+                    </div>
+
+
+<br>
+<br>
+
+</nb-card-footer>
+</nb-card>
+                  
+       
+
+
+
+ 
+
+        
+
+      <!--  </nb-tab> -->
+   <!-- </nb-tabset> -->
+   
+
+</div>

@@ -1,0 +1,234 @@
+
+   <nb-card class=" col-6 " 
+   [ngStyle]="{'left':name == 'Statistiques sur 7 jours' ? '' : '20px','right':name == 'Statistiques sur 7 jours' ? '-7px' : ''}"
+   style="margin-bottom: 0px !important; float:left;margin-top : 21px;width:49%">
+    <nb-card-header 
+  >
+    {{name}}
+    </nb-card-header>
+    <nb-card-body style="display: grid;grid-template-columns: auto auto auto ;">
+  
+    <div *ngIf="currentMethodeJ == 'P'   && title1=='PENMAN-MONTEITH' "  style="    margin-left: 30px;">
+      <!-- <div style="margin-bottom: 40px;">{{ title1 }}</div> -->
+    <img  class="pluie" [src]="src1" alt="">
+    <div style="margin-left: -10px;font-size:13px; margin-top:10px">{{ title1 }}</div>
+    </div>
+
+<div *ngIf="currentMethodeJ == 'P'   && title1=='PENMAN-MONTEITH' " >
+<div class=" header">
+    <div>
+      <p>Maximum </p>
+    </div>
+
+    <div  class="detail">
+    {{ Maximum1 }}
+    </div>
+  </div>
+  <div class="header">
+    <div>
+  <p>Minimum  </p>
+    </div>
+
+    <div  class="detail">
+    {{ Minimum1  }}
+    </div>
+  </div>
+</div>
+ 
+<div *ngIf="currentMethodeJ == 'P'  && title1=='PENMAN-MONTEITH'  ">
+<div class="header">
+<div>
+  <p>Moyenne  </p>
+</div>
+
+<div class="detail">
+{{ Moyenne1  }}
+</div>
+</div>
+<div class="header">
+<div>
+  <p>Ecart type  </p>
+</div>
+
+<div class="detail">
+{{ Ecart_type1 }}
+</div>
+</div>
+<!-- 
+</div> -->
+</div>
+
+
+
+
+<div *ngIf="currentMethodeJ == 'H' && title2=='HARGREAVES'"  style="    margin-left: 30px;">
+  <!-- <div style="margin-bottom: 40px;">{{ title1 }}</div> -->
+<img  class="pluie" [src]="src2" alt="">
+<div style="margin-left: -10px;font-size:13px; margin-top:10px">{{ title2 }}</div>
+</div>
+
+  <!-- <div  *ngIf="currentMethodeJ == 'H' && title2=='HARGREAVES' ">
+    <img  class="pluie" [src]="src2" alt="">
+    <div style="margin-left: 20px;font-size:13px; margin-top:10px">{{ title2 }}</div>
+  </div> -->
+  <div *ngIf="currentMethodeJ == 'H' && title2=='HARGREAVES' "  >
+    <div class=" header">
+        <div>
+          <p>Maximum </p>
+        </div>
+    
+        <div  class="detail">
+        {{ Maximum2 }}
+        </div>
+      </div>
+      <div class="header">
+        <div>
+      <p>Minimum  </p>
+        </div>
+    
+        <div  class="detail">
+        {{ Minimum2  }}
+        </div>
+      </div>
+    </div>
+     
+    <div *ngIf="currentMethodeJ == 'H' && title2=='HARGREAVES'">
+    <div class="header">
+    <div>
+      <p>Moyenne  </p>
+    </div>
+    
+    <div class="detail">
+    {{ Moyenne2  }}
+    </div>
+    </div>
+    <div class="header">
+    <div>
+      <p>Ecart type  </p>
+    </div>
+    
+    <div class="detail">
+    {{ Ecart_type2 }}
+    </div>
+    </div>
+    <!-- 
+    </div> -->
+    </div>
+<!-- 
+ - {{currentMethodeJ}}
+ - {{currentMethodeM}}
+-- {{title1}}
+ ---> 
+ 
+ <div *ngIf="currentMethodeM == 'T'  && title1 !='PENMAN-MONTEITH'"  style="    margin-left: 30px;">
+    <!-- <div style="margin-bottom: 40px;">{{ title1 }}</div> -->
+  <img  class="pluie" [src]="src1" alt="">
+  <div style="margin-left: -10px;font-size:13px; margin-top:10px">{{ title1 }}</div>
+  </div>
+
+<div *ngIf="currentMethodeM == 'T' && title1 !='PENMAN-MONTEITH'  " >
+<div class=" header">
+  <div>
+    <p>Maximum </p>
+  </div>
+
+  <div  class="detail">
+  {{ Maximum1 }}
+  </div>
+</div>
+<div class="header">
+  <div>
+<p>Minimum  </p>
+  </div>
+
+  <div  class="detail">
+  {{ Minimum1  }}
+  </div>
+</div>
+</div>
+
+<div *ngIf="currentMethodeM == 'T'  && title1 !='PENMAN-MONTEITH'  ">
+<div class="header">
+<div>
+<p>Moyenne  </p>
+</div>
+
+<div class="detail">
+{{ Moyenne1  }}
+</div>
+</div>
+<div class="header">
+<div>
+<p>Ecart type  </p>
+</div>
+
+<div class="detail">
+{{ Ecart_type1 }}
+</div>
+</div>
+<!-- 
+</div> -->
+</div>
+
+
+
+<div *ngIf="currentMethodeM == 'B' && title2 !='HARGREAVES'"  style="    margin-left: 30px;">
+  <!-- <div style="margin-bottom: 40px;">{{ title1 }}</div> -->
+<img  class="pluie" [src]="src2" alt="">
+<div style="margin-left: -10px;font-size:13px; margin-top:10px">{{ title2 }}</div>
+</div>
+ 
+<div *ngIf="currentMethodeM == 'B'  && title2 !='HARGREAVES' ">
+  <div class=" header">
+      <div>
+        <p>Maximum </p>
+      </div>
+  
+      <div  class="detail">
+      {{ Maximum2 }}
+      </div>
+    </div>
+    <div class="header">
+      <div>
+    <p>Minimum  </p>
+      </div>
+  
+      <div  class="detail">
+      {{ Minimum2  }}
+      </div>
+    </div>
+  </div>
+   
+  <div *ngIf="currentMethodeM == 'B'  && title2 !='HARGREAVES' ">
+  <div class="header">
+  <div>
+    <p>Moyenne  </p>
+  </div>
+  
+  <div class="detail">
+  {{ Moyenne1  }}
+  </div>
+  </div>
+  <div class="header">
+  <div>
+    <p>Ecart type  </p>
+  </div>
+  
+  <div class="detail">
+  {{ Ecart_type2 }}
+  </div>
+  </div>
+  <!-- 
+  </div> -->
+  </div>
+
+
+
+
+
+
+
+
+    </nb-card-body>
+  </nb-card>
+  

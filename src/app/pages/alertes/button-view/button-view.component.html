@@ -1,0 +1,30 @@
+<i class="far   myeye" [ngClass]="{'fa-eye-slash': rowData.vu == 'false', 'fa-eye':rowData.vu == 'true'}"  (click)="openModalBox()"></i>
+
+
+<div #leaveModal class="modal" id="leaveModal" [class.d-block]="show" [class.d-none]="!show"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+       <!-- Modal content-->
+       <div class="modal-content" [ngClass]="{' modal-warning': rowData.level == 'WARNING', ' modal-critical':rowData.level == 'CRITICAL', 'modal-ok':rowData.level == 'OK' }"  >
+         
+          <div class="modal-header">
+             <h4 class="modal-title">
+                <i *ngIf="rowData.level == 'CRITICAL'" class="fas fa-times-circle" style="color:red"></i>
+                <i *ngIf="rowData.level == 'OK'"class="fas fa-thumbs-up" style="color:green"></i>
+                <i *ngIf="rowData.level == 'WARNING'" class="fas fa-exclamation-triangle" style="color:rgb(190, 190, 29)"></i>
+                Alerte
+            </h4>
+             <button type="button" class="close" (click)="closeModalBox()" data-dismiss="modal">
+             &times;
+             </button>
+          </div>
+
+          <div class="modal-body">
+             <p>{{renderValue}}</p>
+          </div>
+          <div class="modal-footer">
+             <button type="button" class="btn btn-custom lg mr-2 float-right" data-dismiss="modal" (click)="onLeave()">OK</button>
+          </div>
+       </div>
+    </div>
+ </div>
+ 

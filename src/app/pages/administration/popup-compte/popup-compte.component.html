@@ -1,0 +1,133 @@
+<!-- <div class="ngx-popup-compte">
+    <div  class="ngx-popup-compte-body">
+        <table class="table table-striped">
+            
+            <tbody>
+              <tr>
+                <td  ></td>
+                <td  ><input class=" form-control form-control-sm capteurInput" type="text" name="password" id="password"  value="{{newcompte.password}}" [(ngModel)]="newcompte.password" required>
+                </td>
+                 
+              </tr>
+            </tbody>
+          </table>
+
+          <button class="btn btn-primary"  > Verifier </button>        
+    </div>
+</div>
+<div class="ngx-popup-compte-background"></div> -->
+<div #myModal class="container">
+    <div class="content">
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputAddress2">Entrer votre mot de passe </label>
+          <input class=" form-control form-control-sm capteurInput" type="password" name="password" id="password"   [(ngModel)]="newpassword" required>
+        </div>
+        
+    </div>
+        <!-- <table class="table table-striped">
+            
+            <tbody>
+              <tr>
+                <td >Mot de passe :   </td>
+                <td  ><input class=" form-control form-control-sm capteurInput" type="password" name="password" id="password"   [(ngModel)]="newpassword" required>
+                </td>
+                 
+              </tr>
+            </tbody>
+          </table> -->
+      <button class="btn btn-primary" (click)="close()">Fermer</button>
+      <button class="btn btn-custom lg mr-2 float-right" (click)="closeAndOpen()">Suivant</button>
+    </div>
+    </div>
+
+
+    <div #myModal2 class="container">
+        <div class="content">
+            <!-- <p> hash :  {{hash}}</p>
+            <p> newcompte : {{newcompte.password}} </p> -->
+            <div class="form-row">
+              <div style="text-align: center;" class="form-group col-md-6">
+                <label   for="inputAddress2">Message </label><br>
+                <b  *ngIf="bool" style="color: rgb(6, 141, 6);">{{message}}</b> 
+                <b *ngIf="!bool" style="color: rgb(196, 24, 24);">{{message}}</b>
+              </div>
+              
+          </div>
+            <!-- <table class="table table-striped">
+                
+                <tbody>
+                  <tr>
+                    <td  >Message : </td>
+                    <td > </td>
+                    <td  >  </td>
+
+                   
+                  </tr>
+                </tbody>
+              </table> -->
+          <button class="btn btn-primary" (click)="close2()">Fermer</button>
+          <button *ngIf="this.bool" class="btn btn-custom lg mr-2 float-right" (click)="closeAndOpen2()">Suivant</button>
+        </div>
+        </div>
+
+        <div #myModal3 class="container">
+            <div class="content">
+
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputAddress2">Nouveau mot de passe </label>
+                  <input class=" form-control form-control-sm capteurInput" type="password" name="password" id="password"   [(ngModel)]="nouveau_mdp" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputAddress2">Confirmer nouveau mot de passe</label>
+                  <input class=" form-control form-control-sm capteurInput" type="password" name="password" id="password"   [(ngModel)]="confirmation" required>
+                </div>
+            </div>
+
+
+                <!-- <table class="table table-striped">
+                    
+                    <tbody>
+                        <tr>
+                            <td >Nouveau mot de passe :   </td>
+                            <td  ><input class=" form-control form-control-sm capteurInput" type="password" name="password" id="password"   [(ngModel)]="nouveau_mdp" required>
+                            </td>
+                             
+                          </tr>
+                          <tr>
+                            <td >Confirmer nouveau mdp :   </td>
+                            <td  ><input class=" form-control form-control-sm capteurInput" type="password" name="password" id="password"   [(ngModel)]="confirmation" required>
+                            </td>                       
+                          </tr>
+
+                    </tbody>
+                  </table> -->
+                  <div *ngIf="!bool">
+                    <p *ngIf="boolmessage"  style=" text-align: center;color: crimson;"><b>{{message}}</b></p> 
+                  </div>
+                  <div *ngIf="bool">
+                    <p *ngIf="boolmessage"  style=" text-align: center;color: rgba(16, 116, 7, 0.897);"><b>{{message}}</b></p> 
+                  </div>
+            <button *ngIf="!this.bool" class="btn btn-custom lg mr-2 float-right" (click)="verifierMdp(this.nouveau_mdp,this.confirmation)">Verifier</button>
+            <button *ngIf="this.bool" class="btn btn-custom lg mr-2 float-right" (click)="closeAndOpen3()">Suivant</button>
+            <button class="btn btn-primary" (click)="close3()">Fermer</button>
+
+            </div>
+            </div>
+
+            <div #myModal4 class="container">
+                <div class="content">
+                    <table class="table table-striped">                       
+                        <tbody>
+                              <tr>
+                                <td > <b>{{message}}</b>   </td>
+                              </tr>
+    
+                        </tbody>
+                      </table>
+                <button class="btn btn-primary" (click)="close4()">Terminer</button>
+    
+                </div>
+                </div>

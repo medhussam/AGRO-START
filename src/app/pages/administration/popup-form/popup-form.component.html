@@ -1,0 +1,123 @@
+<div class="ngx-popup-form">
+    <div  class="ngx-popup-form-body">
+        <table class="table table-striped">
+            
+            <tbody>
+              <tr>
+                <td  >Id Capteur</td>
+                <td  ><input class=" form-control form-control-sm capteurInput" type="text" name="id capteur" id="id_capteur"  value="{{seuil.id_capteur}}" [(ngModel)]="seuil.id_capteur" disabled>
+                </td>
+                 
+              </tr>
+              <tr>
+                <td>Parametre</td>
+                <td><input class="form-control form-control-sm capteurInput" type="text" name="parametre"  id="parametre" value="{{seuil.parametre}}" [(ngModel)]="seuil.parametre" disabled>
+                </td>
+                 
+              </tr>
+              <tr>
+                <td>Culture</td>
+                <td> <input class="form-control form-control-sm capteurInput" type="text" name="Culture" id="Culture" value="{{seuil.culture}}" [(ngModel)]="seuil.culture" required>
+                </td>
+                
+              </tr>
+ 
+              
+            </tbody>
+          </table>
+
+          <table class="table ">
+             
+            <tbody>
+                  
+              <tr>
+                <td>
+                    <label style=" margin-left: -10px; " class="capteur" for="Avertissement min">Avertissement min</label>
+           
+                    <input  style="    width:70%;"  class="form-control form-control-sm capteurInput" type="number" name="Avertissement min" id="Avertissement_min" value="{{seuil.warning_min}}" [(ngModel)]="seuil.warning_min"  required>
+                </td>
+                <td>
+                    <label  style=" margin-left: -10px; "  class="capteur"  >Avertissement max</label>
+                    <input  style="    width:70%;"  class="form-control form-control-sm  capteurInput" type="number" name="Avertissement max" id="Avertissement_max" value="{{ seuil.warning_max }}" [(ngModel)]="seuil.warning_max" required>
+                </td>                
+              </tr>
+ 
+              <tr>
+                <td style="    text-align:left;">
+                    <label class="capteur" >Critique min</label>
+                    
+                    <input style="    width:70%;" class="form-control form-control-sm capteurInput" type="number" name="Critique min" id="Critique_min" value="{{seuil.critique_min}}" [(ngModel)]="seuil.critique_min" required>
+                </td>
+                <td style="    text-align:left;" >
+                    <label class="capteur" >Critique max</label>
+                    <input style="    width:70%;" class="form-control form-control-sm capteurInput" type="number" name="Critique max" id="Critique_max" value="{{seuil.critique_max}}" [(ngModel)]="seuil.critique_max" required>
+        </td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+
+          <button class="btn btn-primary" (click)="submitSeuil(seuil)" > Soumettre </button>
+            
+
+
+        
+    </div>
+</div>
+<div class="ngx-popup-form-background"></div>
+
+
+<!-- <ng-content style="background-color: black;"></ng-content> -->
+
+
+<!-- 
+        <label class="capteur" for="id capteur">Id Capteur</label>
+        <div class="labelandinput">
+        <input class="capteurInput" type="text" name="id capteur" id="id_capteur"  value="{{seuil.id_capteur}}" [(ngModel)]="seuil.id_capteur" disabled>
+        </div>         
+
+        <label class="capteur" for="parametre">Parametre</label> 
+         <div class="labelandinput">
+            <input class="capteurInput" type="text" name="parametre"  id="parametre" value="{{seuil.parametre}}" [(ngModel)]="seuil.parametre" disabled>
+        
+        </div> 
+        
+        <label class="capteur" for="Culture">Culture</label>
+        <div  class="labelandinput">    
+        <input class="capteurInput" type="text" name="Culture" id="Culture" value="{{seuil.culture}}" [(ngModel)]="seuil.culture" required>
+        </div> 
+        
+         <div class="col-6">
+            <label class="capteur" for="Avertissement min">Avertissement min</label>
+            <div class="labelandinput"> 
+            <input class="capteurInput" type="number" name="Avertissement min" id="Avertissement_min" value="{{seuil.warning_min}}" [(ngModel)]="seuil.warning_min"  required>
+            </div>  
+         </div>
+       
+        
+         <div class="col-6">
+        <label class="capteur" for="Critique min">Critique min</label>
+        <div class="labelandinput"> 
+        <input class="capteurInput" type="number" name="Critique min" id="Critique_min" value="{{seuil.critique_min}}" [(ngModel)]="seuil.critique_min" required>
+        </div> 
+    </div>
+        
+        <label class="capteur" for="Avertissement max">Avertissement max</label>
+         
+<div class="labelandinput"> 
+       
+            <input class="capteurInput" type="number" name="Avertissement max" id="Avertissement_max" value="{{ seuil.warning_max }}" [(ngModel)]="seuil.warning_max" required>
+        </div>  
+        
+
+        <label class="capteur" for="Critique max">Critique max</label>
+        
+<div class="labelandinput"> 
+       
+            <input class="capteurInput" type="number" name="Critique max" id="Critique_max" value="{{seuil.critique_max}}" [(ngModel)]="seuil.critique_max" required>
+        </div>   
+   
+        <button class="btn btn-primary" (click)="submitSeuil(seuil)" > Soumettre </button>
+            
+            <ng-content></ng-content> -->

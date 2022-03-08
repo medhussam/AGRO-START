@@ -1,0 +1,202 @@
+{
+
+    "menu":{
+        "bord":"Tableau de bord",
+        "capteurs":"Capteurs",
+        "tableetdata":"Table et data",
+        "MAPS":"Maps",
+        "moduledeconseils":"Module de conseils",
+     
+            "evapotranspiration":"Evapotranspiration",
+            "irrigation":"Irrigation",
+            "fertilisation":"Fertilisation",
+
+        "AGRO_SURVEILLANCE":"Agro surveillance",
+        "SUB_AGRO_SURVEILLANCE":{
+            "imageriesatellitaire":"Imagerie satellitaire",
+            "meteodusol":"Météo du Sol"
+        
+        },
+        "notification":"Notification",
+        "alerts":"Alerts",
+        "informationsutils":"Informations utiles",
+        "administration":"Administration"
+    },
+
+    "dashboard":{
+      "exploitations":"Exploitations",
+      "temperature":"Température",
+      "humidite":"Humidité",
+      "vent":"Vent",
+      "hourlever":"Lever du soleil",
+      "hourcoucher":"Coucher du soleil",
+      "pluviometrie":"Pluviométrie",
+      "pression":"Pression",
+      "point_de_rosee":"Point de rosée",
+
+
+
+      "min_journalier":"Min journalièr",
+      "max_journalier":"Max journalièr",
+      "amplitude_thermique":"Amplitude thermique",
+      "variation_journaliere":"Variation journalière",
+      "capteur":"Capteur",
+      "vitesse_du_vent":"Vitesse du vent",
+      "vitesse_du_rafale":"Vitesse du rafale",
+      "direction_du_vent":"Direction du vent",
+      "capteur_externe":"Capteur externe",
+      "pluv_cumulee":"Pluviométrie Cumulée sur 24 heure",
+
+
+
+      "title_chart_temperature":"Historique des mesures des températures sur 7 jours",
+      "forcast":"Prévisions sur 5 jours",
+      "title_chart_humidite":"Historique des mesures de l'humidité sur 7 jours",
+      "title_chart_vent":"Historique de Vent sur 7 jours",
+      "title_chart_ultraviolet":"Historique Ultraviolet ",
+      "title_chart_rain":"Historiques de la pluviométrie cumulé sur 24h",
+      
+      "nomber_mesure":"Nombre de mesure",
+      "d_mesure":"Dérniere Mesure",
+      "nombre_jours":"Nombre Jours",
+
+      "title_info_cap":"Répartitions des Capteurs par Exploitation et par Type"
+ 
+      
+  },
+
+
+    "administration_exploitatation":{
+        "title_add_exp":"Veuillez identifier votre exploitation",
+        "matricule":"Matricule",
+        "superficie":"Superficie",
+        "region":"Région",
+        "province":"Province",
+        
+            "button_modifier":"Modifier",
+            "button_confermer_et_ajoter":"Confirmer et ajouter une parcelle",
+            "message_eroor":"Veuillez dessiner votre parcelle à l'intérieur de votre exploitation",
+     
+        "button_ressayer":"Réessayer",
+        "type_de_culture":"Type de culture",
+        "culture":"Culture",
+        "variete":"variété",
+        "type_de_sol":"Type de Sol",
+
+        "date_debut":"Date debut",
+        "date_fin":"Date fin",
+        "terminer":"Terminer",
+        "title_add_par":"Veuillez identifier votre parcelle",
+       
+
+        "ger_exp":"Gérer mes Exploitations",
+        "nombre_de_parcelles":"Nombre de parcelles",
+        "actions":"Actions",
+        "ajouter":"Ajouter",
+        "supprimer":"Supprimer"
+    },
+    "draw": {
+        "toolbar": {
+          "actions": {
+            "title": "Cancel  your text",
+            "text": " your text"
+          },
+          "finish": {
+            "title": " your text",
+            "text": " your text"
+          },
+          "undo": {
+            "title": " your text",
+            "text": " your text"
+          },
+          "buttons": {
+            "polyline": " your text",
+            "polygon": " your text",
+            "rectangle": " your text",
+            "circle": " your text",
+            "marker": " your text",
+            "circlemarker": " your text"
+          }
+        },
+        "handlers": {
+          "circle": {
+            "tooltip": {
+              "start": " your text"
+            },
+            "radius": " your text"
+          },
+          "circlemarker": {
+            "tooltip": {
+              "start": " your text."
+            }
+          },
+          "marker": {
+            "tooltip": {
+              "start": " your text."
+            }
+          },
+          "polygon": {
+            "tooltip": {
+              "start": "langue française",
+              "cont": " your text.",
+              "end": " your text."
+            }
+          },
+          "polyline": {
+            "error": "<strong>Error:</strong> shape edges cannot cross!",
+            "tooltip": {
+              "start": "Click to start drawing line.",
+              "cont": "Click to continue drawing line.",
+              "end": "Click last point to finish line."
+            }
+          },
+          "rectangle": {
+            "tooltip": {
+              "start": " your text."
+            }
+          },
+          "simpleshape": {
+            "tooltip": {
+              "end": "Release mouse to finish drawing."
+            }
+          }
+        }
+      },
+      "edit": {
+        "toolbar": {
+          "actions": {
+            "save": {
+              "title": "Save changes",
+              "text": "Save"
+            },
+            "cancel": {
+              "title": "Cancel editing, discards all changes",
+              "text": "Cancel"
+            },
+            "clearAll": {
+              "title": "Clear all layers",
+              "text": "Clear All"
+            }
+          },
+          "buttons": {
+            "edit": "Edit layers",
+            "editDisabled": "No layers to edit",
+            "remove": "Delete layers",
+            "removeDisabled": "No layers to delete"
+          }
+        },
+        "handlers": {
+          "edit": {
+            "tooltip": {
+              "text": "Drag handles or markers to edit features.",
+              "subtext": "Click cancel to undo changes."
+            }
+          },
+          "remove": {
+            "tooltip": {
+              "text": "Click on a feature to remove."
+            }
+          }
+        }
+      }
+}

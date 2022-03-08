@@ -1,0 +1,10 @@
+<!-- <div leaflet (leafletDrawCreated)="onDrawCreated($event)" [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"></div>-->
+<div style="height: 52rem !important; width: 100%;" leaflet leafletDraw [leafletOptions]="options"
+    [leafletDrawOptions]="drawOptions" [leafletDrawLocal]="drawLocal" (leafletDrawCreated)="onDrawCreated($event)"
+    (leafletDrawStart)="onDrawStart($event)" (leafletMapReady)="onMapReady($event)"></div>
+<!-- <button (click)="openModal('add')" class="btn btn-primary legent" >chi haja</button> -->
+<!-- <div class="legent"><p> </p><p *ngFor="let l of new" > <img width="22x" height="22px" [src]="'../../../../../assets/images/'+l.icon+'.svg'" /> {{l.mesure }}</p></div>-->
+
+<!-- <ngx-addmodal-parcelle id="add">
+    <button class="btn btn-danger ml-3" (click)="closeModal('add')">Close</button>
+</ngx-addmodal-parcelle> -->

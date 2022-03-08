@@ -1,0 +1,5 @@
+<ngx-chart-cpe [tBase]="tBase" [eventCapteur]="eventCapteur"
+[eventExploitation]="eventExploitation" [eventPages]="eventPages" [capData]="capData" [rainData]="rainData"></ngx-chart-cpe>
+<p>Température de Base : {{tBase}}°C</p>
+    <ngx-nouislider (drJour)="drJour($event)"></ngx-nouislider> 
+    <ng-content></ng-content>

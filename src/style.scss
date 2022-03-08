@@ -1,0 +1,191 @@
+@import "~nouislider/distribute/nouislider.min.css";
+
+.info { 
+    padding: 8px 8px; 
+    font: 14px/16px Arial, Helvetica, sans-serif; 
+    background: white; 
+    background: rgba(255,255,255,0.8); 
+    box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+    border-radius: 5px; 
+  } 
+    
+  .info h4 { 
+    margin: 0 0 5px; 
+    color: #777; 
+  }
+  
+  .legend { 
+    text-align: left; line-height: 18px; color: #555; 
+  } 
+    
+  .legend i { 
+    width: 18px; 
+    height: 18px; 
+    float: left; 
+    margin-right: 8px; 
+    opacity: 0.7; 
+  }
+.icon-select {
+  padding: 5px;
+}
+ // CSS Reset, comment out if not required or using a different module
+// @import '~minireset.css/minireset';
+@import '~igniteui-angular/lib/core/styles/themes/index';
+@include igx-core();
+@include igx-theme($default-palette, $legacy-support: true);
+
+:root {
+    @include css-vars-from-palette($default-palette);
+}
+
+/* autoprefixer grid: on */
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+.igx-overlay__content--relative{
+  width: 30% !important;
+}
+.sample-wrapper {
+    width: inherit;
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    background: transparent;
+}
+
+.sample-content {
+    display: flex;
+    flex-grow: 1;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 0;
+    -webkit-animation: fade-in .3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    -moz-animation: fade-in .3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in .3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.sample-column {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 0 25%;
+    align-content: flex-start;
+    margin: 16px;
+    min-width: 280px;
+}
+
+.sample-title {
+    color: #0375be;
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.sample-title .light {
+    font-weight: 400;
+}
+
+.sample-description {
+    font-size: 14px;
+    font-weight: normal;
+    color: #717171;
+}
+
+@-webkit-keyframes color-change-2x {
+    0% {
+        background: #fdf8f0;
+    }
+    100% {
+        background: #f6e7ec;
+    }
+}
+
+@keyframes color-change-2x {
+    0% {
+        background: #fdf8f0;
+    }
+    100% {
+        background: #f6e7ec;
+    }
+}
+
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.headerAlignSyle {
+    text-align: right !important;
+}
+
+$green-palette: igx-palette($primary: #09f,$secondary: #72da67, $surface: #333);
+
+.fin-dark-theme {
+    @include igx-dark-theme($green-palette);
+     background: #333;
+
+     ::-moz-placeholder {
+         opacity: 1;
+     }
+ }
+
+.dark-theme {
+    background: #333;
+    color: #fff;
+    @include igx-dark-theme($green-palette, $legacy-support: true);
+
+    .grid-chart-contextmenu-wrapper{
+        @include igx-fluent-dark-theme($fluent-excel-palette);
+    }
+}
+
+
+
+
+
+/* common */
+.loading {
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    span {
+      display: inline-block;
+      margin: 0 .02em;
+    }
+  }
+  
+  /* code #1 */
+  .loading01 {
+    span {
+      animation: loading01 1.4s infinite alternate;
+      @for $i from 0 through 6 {
+        &:nth-child(#{$i+1}) {
+          animation-delay: #{$i*.1}s;
+        }
+      }
+    }
+  }
+  @keyframes loading01 {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  

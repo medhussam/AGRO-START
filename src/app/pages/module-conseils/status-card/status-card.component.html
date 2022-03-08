@@ -1,0 +1,101 @@
+
+
+<h6 style="background-color:#fff;padding:8px;margin:0px 0px 10px !important;">{{ name }}</h6>
+    <nb-card>
+      <!-- <nb-card-header>Journaliere</nb-card-header> -->
+
+     <div *ngIf="currentMethodeJ == 'P' && title1=='PENMAN-MONTEITH' " class="icon-container">
+        <div class="icon status-light {{ type }}">
+           
+          <img class="iconPng" [src]="src1" alt="">
+        </div>
+      </div>
+
+      <div *ngIf="currentMethodeJ == 'P' && title1=='PENMAN-MONTEITH' "  class="details">
+        <div class="title h6">{{ title1 }}</div>
+        <div class="title h5">{{ value1 }}</div>
+      </div>
+      <div *ngIf="currentMethodeJ === 'H' && title2=='HARGREAVES' " class="icon-container">
+      <div class="icon status-light {{ type }}">
+       
+        <img class="iconPng" [src]="src2" alt="">
+      </div>
+    </div>
+
+    <div *ngIf="currentMethodeJ == 'H'  && title2=='HARGREAVES' " class="details">
+      <div class="title h6">{{ title2 }}</div>
+      <div class="title h5">{{ value2 }}</div>
+    </div>
+
+
+
+    <div *ngIf="currentMethodeM == 'T' && title1=='THORNTHWAITE' " class="icon-container">
+    <div class="icon status-light {{ type }}">
+       
+      <img class="iconPng" [src]="src1" alt="">
+    </div>
+  </div>
+
+  <div *ngIf="currentMethodeM == 'T' && title1=='THORNTHWAITE'  "  class="details">
+    <div class="title h6">{{ title1 }}</div>
+    <div class="title h5">{{ value1 }}</div>
+  </div>
+  <div *ngIf="currentMethodeM == 'B' && title2=='BLANEY-CRIDDLE' " class="icon-container">
+  <div class="icon status-light {{ type }}">
+   
+    <img class="iconPng" [src]="src2" alt="">
+  </div>
+</div>
+
+<div *ngIf="currentMethodeM == 'B' && title2=='BLANEY-CRIDDLE'" class="details">
+  <div class="title h6">{{ title2 }}</div>
+  <div class="title h5">{{ value2 }}</div>
+</div>
+
+
+
+      <nb-select *ngIf="currentMethodeJ == 'H' && title2=='HARGREAVES'" class="divMethode"     status="primary" placeholder="Autres méthodes">
+       
+      <nb-option    (click)="ChangeMethode('H')" >PENMAN-MONTEITH</nb-option>
+      
+    </nb-select>
+     
+    <nb-select *ngIf="currentMethodeJ == 'P' && title1=='PENMAN-MONTEITH'" class="divMethode"    status="primary" placeholder="Autres méthodes">
+    <nb-option      (click)="ChangeMethode('P')" >HARGREAVES</nb-option>
+     
+    
+  </nb-select>
+      
+
+
+
+  <nb-select *ngIf="currentMethodeM == 'B' && title2=='BLANEY-CRIDDLE'" class="divMethode"     status="primary" placeholder="Autres méthodes">
+       
+   
+  <nb-option    (click)="ChangeMethode('B')" >THORNTHWAITE</nb-option>
+</nb-select>
+ 
+<nb-select *ngIf="currentMethodeM == 'T' && title1=='THORNTHWAITE'" class="divMethode"     status="primary" placeholder="Autres méthodes">
+ 
+<nb-option    (click)="ChangeMethode('T')" >BLANEY-CRIDDLE</nb-option>
+
+</nb-select>
+  
+
+
+
+
+     <!-- <div class="icon-container" style="margin-left: 61px">
+        <div class="icon status-light {{ type }}">
+        <ng-content></ng-content> 
+          <img class="iconPng" [src]="src2" alt="">
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="title h6">{{ title2 }}</div>
+        <div class="title h5">{{ value2 }}</div>
+      </div>-->
+     
+    </nb-card>
+    

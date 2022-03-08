@@ -1,0 +1,87 @@
+<nb-card class="title-card"> 
+  <div class="row"> 
+    <div class="col-10"> <h6 class="titre" style="color: white;">
+    Produits marocains dans les marchés internationnaux
+  </h6></div> 
+<div class="col-2"> 
+
+  <button class="btn btn-custom lg mr-2 float-right" [routerLink]="['/pages/InformationUtiles/Dashboard']"  ><i class="fas fa-reply" style="color:#d8eafb;font-size: 30px;"></i></button>
+</div> 
+</div> 
+</nb-card>
+<div *ngIf="graphbool" >
+  <ngx-datepicker1  [dateDebut]="datedebutSelected" (dateFrom)="dateFrom($event)" (dateTo)="dateTo($event)" ></ngx-datepicker1>
+  <ngx-line-chart [datagraph]="datagraph" [nomProduit]="nomProduit" [nomMarche]="nomMarche" ></ngx-line-chart>
+  <nb-card-footer ><button class="btn btn-custom lg mr-2 float-right" style ="margin-top:-1%;background-color: #e93f14f8; color: white;" (click)="Fermer()">Retour</button></nb-card-footer>
+<br><br>
+</div>
+
+
+
+<nb-card > 
+  <nb-card-header>
+    <div class="row"> 
+    <div class="col-sm-12 col-md-2"> 
+    <nb-select  [(selected)]="f_marche"  class="float-left"  placeholder="Marchés "  status="primary" style=" margin:8px 2px; width: 100%;"> 
+      <nb-option  (click)="filtreTableau()" value="all">Tous les marchés</nb-option>            
+      <nb-option  (click)="filtreTableau()" *ngFor="let p of marches" [value]="p">   
+          {{ p }}</nb-option>
+    </nb-select>
+  </div>
+    <div class="col-sm-12 col-md-2"> 
+    <nb-select  [(selected)]="f_nom_produit"  class="float-left"  placeholder="Produit "  status="primary" style=" margin:8px 2px;width: 100%;"> 
+      <nb-option  (click)="filtreTableau()" value="all">Tous les produits</nb-option>            
+      <nb-option  (click)="filtreTableau()" *ngFor="let p of noms_produits" [value]="p">   
+          {{ p }}</nb-option>
+    </nb-select>
+  </div>
+
+    <div class="col-sm-12 col-md-2">  
+    <nb-select  [(selected)]="f_unite"  class="float-left"  placeholder="Unités "  status="primary" style="margin:8px 2px; width: 100%;"> 
+      <nb-option  (click)="filtreTableau()" value="all">Toutes les unités</nb-option>            
+      <nb-option  (click)="filtreTableau()" *ngFor="let p of unites" [value]="p">   
+          {{ p }}</nb-option>
+    </nb-select>
+  </div>
+
+    <div class="col-sm-3 col-md-2">  
+    <nb-select  [(selected)]="f_legume_fruit"  class="float-left"  placeholder="Legumes/Fruits "  status="primary" style="margin:8px 2px; width: 100%;"> 
+      <nb-option  (click)="filtreTableau()" value="all">Legumes/Fruits</nb-option>            
+      <nb-option  (click)="filtreTableau()" *ngFor="let p of legumes_fruits" [value]="p">   
+          {{ p }}</nb-option>
+    </nb-select>
+  </div>
+    <div class="col-sm-3 col-md-2">  
+    <nb-select  [(selected)]="f_pays"  class="float-left"  placeholder="Pays "  status="primary" style="margin:8px 2px; width: 100%;"> 
+      <nb-option  (click)="filtreTableau()" value="all">Tous les pays</nb-option>            
+      <nb-option  (click)="filtreTableau()" *ngFor="let p of pays" [value]="p">   
+          {{ p }}</nb-option>
+    </nb-select>
+  </div>
+  <div class="col-sm-3 col-md-2">  
+    <button class="btn" style="float:right;margin:8px 2px; width: 100%;background-color:#94CBFF" (click)="Fermer()">Réinitialiser les filtres</button> 
+  </div>
+  </div>
+  <!---->
+
+  </nb-card-header>
+
+    <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (custom)="affGraph($event)" >
+     </ng2-smart-table>
+   </nb-card-body>
+ </nb-card> 
+
+
+ <!-- <ngx-charts-line-chart>
+  [results]="data"
+  [xAxis]="true"
+  [scheme]="colorScheme"
+  [showGridLines]="false">
+ </ngx-charts-line-chart> -->
+
+ <!-- <nb-card>
+
+ </nb-card> -->
+
+

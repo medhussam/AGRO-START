@@ -1,0 +1,256 @@
+<!-- 
+ 
+
+<nb-card *ngIf="!isEmptyObject(allData)"  class="card_fixed col-12">
+  <button *ngIf="!show" class="btn btnShow_r" (click)="toggle()" id="bt">
+      
+    <i class={{buttonName}}></i>
+  </button>
+  <button *ngIf="show" class="btn btnShow" (click)="toggle()" id="bt">
+     
+    <i class={{buttonName}}></i>
+  </button>
+    <nb-card-body *ngIf="show">
+        <div style="display: block ruby; grid-template-columns: auto auto">
+       <div class="nav_fix" style="text-align: center;" ><b> Sélectionner un Paramètre</b>  </div>
+       
+       <ngx-select-pages  (pageSelected)="pageSelcted($event)"[data]="nameMesure"></ngx-select-pages>
+       
+
+       
+       <ngx-select-exp  [eventexpSelected]="expSelected" (expSelected)="explSelected($event)"></ngx-select-exp>
+        
+         
+       <nb-select  name="selected_capteur" [placeholder]="eventCapteur" [(selected)]="eventCapteur" class="selectCapteur">
+        <nb-option (click)="changeCapteur(cap.id_capteur)" *ngFor="let cap of mesureChanged" [value]="cap.id_capteur"  >{{cap.id_capteur}} </nb-option>
+     </nb-select> 
+     
+        </div>
+    </nb-card-body>
+  </nb-card> 
+
+ <div *ngIf="!isEmptyObject(allData)"    class="row" style="margin-top: 50px;">
+    <div class="col-md-4 col-xxxl-4">
+        <ngx-data-grid [dataGrid]="dataTable" [eventCapteur]="eventCapteur" [eventExploitation]="eventExploitation" [eventPages]="eventPages"></ngx-data-grid>
+        <nb-card >
+          <nb-card-header [ngSwitch]="eventPages">
+            <b *ngSwitchCase="'temperature'">Température</b>
+            <b *ngSwitchCase="'humidity'">Humidité</b>
+            <b *ngSwitchCase="'light'">Luminosité</b>
+            <b *ngSwitchCase="'soil_temperature'">Température du sol</b>
+            <b *ngSwitchCase="'soil_conductivity'">Conductivité</b>
+            <b *ngSwitchCase="'soil_humidity'">Humidité du sol</b>
+            <b *ngSwitchCase="'solar'">Radiation solaire</b>
+            <b *ngSwitchCase="'atmosphericPressure'">Pression atmosphérique</b>
+            <b *ngSwitchCase="'vapourPressure'">Pression de la vapeur</b>
+            <b *ngSwitchCase="'windDirection'">Direction du vent</b>
+            <b *ngSwitchCase="'wind_speed'">Vitesse du vent</b>
+            <b *ngSwitchCase="'rain'">Pluviometrie</b>
+            <b *ngSwitchCase="'strikes'">Coups de foudre</b>
+            <b *ngSwitchCase="'gustSpeed'">Vitesse de rafale</b>
+
+
+
+
+
+
+
+
+
+          </nb-card-header>  
+           <ngx-chart-cap  [dataGrid]="dataTable" [eventCapteur]="eventCapteur" [eventExploitation]="eventExploitation" [eventPages]="eventPages"></ngx-chart-cap>
+        </nb-card>
+     
+      </div>
+    <div class="col-md-8 ">
+<div class="">
+ <nb-card >
+    <nb-tabset  fullWidth>
+      <nb-tab  tabTitle="Capteurs" [lazyLoad]="true">
+        <ngx-chart-croissance [dataMesure]="dataMesure" [eventCapteur]="eventCapteur"
+         [eventExploitation]="eventExploitation" [eventPages]="eventPages"><ngx-datepicker [dateDebut]="datedebutSelectedCap" (dateFrom)="dateFromCap($event)" (dateTo)="dateToCap($event)"></ngx-datepicker></ngx-chart-croissance>
+      </nb-tab>
+      <nb-tab *ngIf="eventPages=='temperature'" tabTitle="Paramètres spéciaux" [lazyLoad]="true" >
+        <ngx-chart-cpeciaux [eventCapteur]="eventCapteur"
+        [eventExploitation]="eventExploitation" [eventPages]="eventPages" [rainData]="rainData" [capData]="capData"><ngx-datepicker [dateDebut]="datedebutSelectedSpe" (dateFrom)="dateFromSpe($event)" (dateTo)="dateToSpe($event)"></ngx-datepicker></ngx-chart-cpeciaux>
+      </nb-tab>
+      <nb-tab tabTitle="Paramètres croisés" [lazyLoad]="true" >
+        <ngx-multip-y-axis  [data]="dataTable" [eventCapteur]="eventCapteur"
+        [eventExploitation]="eventExploitation" [eventPages]="eventPages" [externalData]=""><ngx-datepicker [dateDebut]="datedebutSelectedCap" (dateFrom)="dateFrom($event)" (dateTo)="dateTo($event)"></ngx-datepicker></ngx-multip-y-axis>
+      
+      </nb-tab>
+    </nb-tabset>
+    
+  </nb-card>
+ <div style="height: auto;">
+   <ngx-leaflet [eventPages]="eventPages" [eventCapteur]="eventCapteur" [eventExploiatation]="eventExploitation" ></ngx-leaflet> 
+ </div>
+</div>  
+    </div>
+</div> 
+ 
+
+<div  *ngIf="isEmptyObject(allData) && capteurFalse"  >
+      
+  <ngx-no-capteur >Aucun Capteur Installé</ngx-no-capteur>
+</div>
+  -->
+
+
+
+  <div *ngIf="show_capteurs"  class="row"> 
+
+    <div class="col-md-6" style="float: left;" >
+      
+     
+      <nb-card style="      height: 93%;  "  class="headings-card">
+        <nb-card-header>
+          
+          EM500-SWL
+        </nb-card-header>
+        <nb-card-body>
+          <div class="col-lg-6 col-sm-12 col-md-12  " >
+          <img src="../../../assets/images/swl.png" style="      width: 100%;  float: left;  " alt="login" class="login-card-img">
+          </div>
+          <div class="col-lg-6 col-sm-12 col-md-12  " style="      float: right;  " >
+            <h4>Capteur de niveau de liquide submersible</h4>
+              <p><i class="fa fa-check"></i> Surveillance du niveau du
+                réservoir d'eau<br>
+                
+                <i class="fa fa-check"></i> Surveillance du niveau des
+                ressources en eau<br>
+                
+                <i class="fa fa-check"></i> Surveillance des
+                réservoirs d'eaux usées<br>
+                
+                <i class="fa fa-check"></i>Surveillance du niveau
+                des cuves à mazout<br>
+                
+                <i class="fa fa-check"></i>Surveillance du niveau
+                des bassins d’irrigation
+                 </p>
+            </div>
+        
+          
+          
+        </nb-card-body>
+        <nb-card-footer>
+          <button class="btn btn-white" (click)="show_article()"  > Voir les détails </button>
+         </nb-card-footer>
+     
+      </nb-card>
+  </div>
+  <div class="col-md-6" style="float: left;" >
+      
+     
+    <nb-card style="      height: 93%;  "  class="headings-card">
+      <nb-card-header>
+        
+        EM500-LGT
+      </nb-card-header>
+      <nb-card-body>
+     <div class="col-lg-6 col-sm-12 col-md-12" >
+      <img src="../../../assets/images/lgt.png" style="      width: 100%;  float: left;  " alt="login" class="login-card-img">
+      </div>
+       <div class="col-lg-6 col-sm-12 col-md-12 " style="      float: right;  " >
+      <h4>Capteur de luminosité</h4>
+        <p><i class="fa fa-check"></i> Bâtiments intelligents<br>
+
+          <i class="fa fa-check"></i>   Eclairage urbain<br>
+          
+          <i class="fa fa-check"></i>Contrôle de serre<br>
+          
+          <i class="fa fa-check"></i>Agriculture intelligente<br>
+          
+          <i class="fa fa-check"></i> Weather monitoring
+          </p>
+      </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button class="btn btn-white"   > Voir les détails </button>
+       </nb-card-footer>
+   
+    </nb-card>
+</div>
+<div class="col-md-6" style="float: left;" >
+      
+     
+  <nb-card style="      height: 93%;  "  class="headings-card">
+    <nb-card-header>
+      
+      EM500-SMTC
+    </nb-card-header>
+    <nb-card-body>
+      <div class="col-lg-6 col-sm-12 col-md-12 " >
+      <img src="../../../assets/images/smtc.png" style="      width: 100%;  float: left;  " alt="login" class="login-card-img">
+      </div>
+     <div class="col-lg-6 col-sm-12 col-md-12" style="      float: right;  " >
+      <h4>Capteur de conductivité du sol</h4>
+        <p><i class="fa fa-check"></i>Contrôle d’irrigation<br> 
+
+          <i class="fa fa-check"></i> Contrôle de serre<br> 
+          
+          <i class="fa fa-check"></i> Agriculture intelligente<br> 
+          
+          <i class="fa fa-check"></i> Horticulture Intelligente<br> 
+          
+          <i class="fa fa-check"></i> Entretien des terrains de
+          golf</p>
+      </div>
+   
+      
+    </nb-card-body>
+    <nb-card-footer>
+      <button class="btn btn-white"   > Voir les détails </button>
+     </nb-card-footer>
+ 
+  </nb-card>
+</div>
+<div class="col-md-6" style="float: left;" >
+      
+     
+  <nb-card style="      height: 93%;  "  class="headings-card">
+    <nb-card-header>
+      
+      EM500-UDL
+    </nb-card-header>
+    <nb-card-body>
+      <div class="col-lg-6 col-sm-12 col-md-12 " >
+      <img src="../../../assets/images/udl.png" style="      width: 100%;  float: left;  " alt="login" class="login-card-img">
+      </div>
+      <div class="col-lg-6 col-sm-12 col-md-12 " style="      float: right;  " >
+      <h4>Capteur de distance à
+        ultrasons</h4>
+        <p><i class="fa fa-check"></i> Surveillance du niveau d'eau<br>
+
+          <i class="fa fa-check"></i> Surveillance des crues et
+          inondations<br>
+          
+          <i class="fa fa-check"></i> Surveillance de niveau/profondeur
+          
+          dans les réservoirs<br>
+          
+          <i class="fa fa-check"></i>  Agriculture intelligente : surveillance
+          du niveau de remplissage dans les
+          silos à grains, engrais ou pellets</p>
+      </div>
+   
+      
+    </nb-card-body>
+    
+    <nb-card-footer>
+      <button class="btn btn-white"   > Voir les détails </button>
+     </nb-card-footer>
+  </nb-card>
+</div>
+
+  </div>
+
+  <button *ngIf="!show_capteurs" style="  background: white;  color: #4a77ff;  margin: -15px 0 10px 0;" class="btn btn-primary" (click)="hide_article()"  ><i class="fa fa-arrow-left"></i></button>
+  <div class="row" *ngIf="!show_capteurs">
+
+   
+
+    <img src="../../../assets/images/udl_1.jpg" class="col-sm-12 col-md-6"  alt="udl" class="login-card-img">
+    <img src="../../../assets/images/udl_2.jpg" class="col-sm-12 col-md-6"   alt="udl" class="login-card-img">
+  </div>

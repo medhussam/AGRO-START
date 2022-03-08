@@ -1,0 +1,109 @@
+
+<nb-card class="title-card"> 
+  <div class="row"> 
+    <div class="col-10"> <h6 class="titre" style="color: white;">
+      Liste des produits Phytosanitaires
+  </h6></div> 
+<div class="col-2"> 
+
+  <button class="btn btn-custom lg mr-2 float-right" [routerLink]="['/pages/InformationUtiles/Dashboard']"  ><i class="fas fa-reply" style="color:#d8eafb;font-size: 30px;"></i></button>
+</div> 
+</div> 
+</nb-card>
+<nb-card > 
+  <nb-card-header>
+    <div class="row"> 
+    <div class="col-sm-12 col-md-3"> 
+      <nb-select  [(selected)]="f_produit"  class="float-left"  placeholder="Produit "  status="primary" style=" margin:8px 2px;width: 100%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Tous les produits</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of produit" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+  </div>
+    <div class="col-sm-12 col-md-3"> 
+      <nb-select  [(selected)]="f_detenteur"  class="float-left"  placeholder="Détenteur "  status="primary" style=" margin:8px 2px;width: 100%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Tous les detenteurs</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of detenteur" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+  </div>
+
+    <div class="col-sm-12 col-md-3">  
+      <nb-select  [(selected)]="f_fournisseur"  class="float-left"  placeholder="Fournisseur "  status="primary" style=" margin:8px 2px;width: 100%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Tous les fournisseurs</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of fournisseur" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+  </div>
+
+    <div class="col-sm-3 col-md-3">  
+      <nb-select  [(selected)]="f_toxico"  class="float-left"  placeholder="Table toxicologique "  status="primary" style=" margin:8px 2px;width: 100%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Table toxicologique</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of toxico" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+  </div>
+    <div class="col-sm-3 col-md-3">  
+      <nb-select  [(selected)]="f_culture"  class="float-left"  placeholder="Culture "  status="primary" style=" margin:8px 2px;width: 100%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Toutes les cultures</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of culture" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+  </div>
+
+  <div class="col-sm-3 col-md-3">  
+    <nb-select  [(selected)]="f_categorie"  class="float-left"  placeholder="Catégorie "  status="primary" style=" margin:8px 2px;width: 100%;"> 
+      <nb-option  (click)="filtreTableau()" value="all">Catégorie</nb-option>            
+      <nb-option  (click)="filtreTableau()" *ngFor="let p of categorie" [value]="p">   
+          {{ p }}</nb-option>
+    </nb-select>
+  </div>
+
+  <div class="col-sm-3 col-md-3">  
+    <nb-select  [(selected)]="f_formulation"  class="float-left"  placeholder="Formulation "  status="primary" style=" margin:8px 2px;width: 100%;"> 
+      <nb-option  (click)="filtreTableau()" value="all">Formulation</nb-option>            
+      <nb-option  (click)="filtreTableau()" *ngFor="let p of formulation" [value]="p">   
+          {{ p }}</nb-option>
+    </nb-select>
+  </div>
+
+  <div class="col-sm-3 col-md-3">  
+    <nb-select  [(selected)]="f_mat_active"  class="float-left"  placeholder="Matière active "  status="primary" style=" margin:8px 2px;width: 100%;"> 
+      <nb-option  (click)="filtreTableau()" value="all">Matiéres active</nb-option>            
+      <nb-option  (click)="filtreTableau()" *ngFor="let p of mat_active" [value]="p">   
+          {{ p }}</nb-option>
+    </nb-select>
+  </div>
+  <div class="col-sm-12 col-md-4">  
+  </div>
+  <div class="col-sm-12 col-md-4"> 
+    <button class="btn btn-rein"   (click)="Fermer()">Réinitialiser les filtres</button>  
+  </div>
+  <div class="col-sm-12 col-md-4">  
+  </div>
+  
+   
+  </div>
+  <!---->
+
+
+       
+          
+         
+          
+         
+          
+         
+         
+         
+
+
+    </nb-card-header>
+    <nb-card-body>
+   <ng2-smart-table [settings]="settings" [source]="dataphyto">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>  
+
+<!-- <p>{{fournisseur}}</p> -->
+

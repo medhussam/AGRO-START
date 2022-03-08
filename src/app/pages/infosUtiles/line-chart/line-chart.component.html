@@ -1,0 +1,28 @@
+<!-- <p>line-chart works!</p>
+{{datagraph}} -->
+<div *ngIf="graphbool">
+    <nb-card> 
+       <highcharts-chart 
+         id="container" 
+         [Highcharts]="Highcharts"
+         [constructorType]="chartConstructor"
+         [options]="chartOptions"
+         [callbackFunction]="chartCallback"
+         [(update)]=updateFromInput
+         [oneToOne]="true"
+           style="width: 100%; height: 400px; display: block;">
+         </highcharts-chart>
+         
+    </nb-card>
+   <!-- <nb-card-footer><button class="btn btn-custom lg mr-2 float-right" style ="background-color: #e93f14f8; color: white;" (click)="Fermer()">Fermer</button></nb-card-footer> -->
+</div>
+<nb-card *ngIf ="message != '' && graphbool == false ">
+    <nb-card-body  > 
+       <b  style="color: rgb(196, 24, 24); text-align: center;margin-left: 10%;">{{message}}</b>
+    </nb-card-body>
+</nb-card>
+
+
+
+
+  

@@ -1,0 +1,85 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+  nb-card-body {
+    padding: 0;
+  }
+
+  ::ng-deep .leaflet-top, ::ng-deep .leaflet-bottom {
+    z-index: 997;
+  }
+
+  ::ng-deep .leaflet-container {
+    width: 100%;
+    height: nb-theme(card-height-large);
+  }
+}
+
+
+.legent {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  border-radius: 5px;
+  background-color: #FFFFFFbd;
+  z-index: 990;
+  padding: 0%;
+}
+
+
+
+
+::ng-deep .leaflet-tooltip {
+  position: absolute;
+  padding: 6px;
+  background-color: #ffffff00; 
+  border: none;
+  border-radius: 3px;
+  color: rgb(255, 255, 255);
+}
+
+
+
+
+.zero {
+  position: absolute;
+  bottom: 9.5px;
+  z-index: 999;
+  left: 11px;
+  font-size: 10px;
+  FONT-WEIGHT: 600;
+  color: black;
+  width: 13px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+
+
+.indice {
+  position: absolute;
+  bottom: 9.5px;
+  z-index: 999;
+  left: 102px;
+  font-size: 10px;
+  FONT-WEIGHT: 600;
+  color: black;
+  width: 13px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+
+.one {
+  position: absolute;
+  bottom: 10px;
+  z-index: 999;
+  left: 200px;
+  font-size: 10px;
+  FONT-WEIGHT: 600;
+  color: rgb(255, 255, 255);
+  width: 13px;
+  border-radius: 20px;
+  text-align: center;
+}

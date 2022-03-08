@@ -1,0 +1,8 @@
+        <nb-select  style="width: 100%; max-width: 25rem !important;"   placeholder="Température">
+    <nb-option *ngFor="let data of pages; let i = index" 
+     (click)="selectPage(data.value)" [disabled]="disable(data.value)"
+       [value]="data.value"  >
+         {{data.name}}
+     </nb-option>
+   
+</nb-select> 

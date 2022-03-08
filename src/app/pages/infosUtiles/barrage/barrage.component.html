@@ -1,0 +1,112 @@
+
+<nb-card class="title-card"> 
+  <div class="row"> 
+    <div class="col-10"> <h6 class="titre" style="color: white;">
+      Situation des principaux barrages
+  </h6></div> 
+<div class="col-2"> 
+
+  <button class="btn btn-custom lg mr-2 float-right" [routerLink]="['/pages/InformationUtiles/Dashboard']"  ><i class="fas fa-reply" style="color:#d8eafb;font-size: 30px;"></i></button>
+</div> 
+</div> 
+</nb-card>
+ 
+
+<div *ngIf="graphbool"> 
+<ngx-line-chart-b [datagraph]="datagraph" [barrageinfo]="barrageinfo"  ></ngx-line-chart-b>
+<br>
+<button class="btn btn-custom lg mr-2 float-right" style ="margin-top:-1.5%;background-color: #e93f14f8; color: white;" (click)="Fermer()">Retour</button>
+<br>
+</div>
+<br>
+
+
+
+
+<nb-card > 
+  <nb-card-header>
+    <div class="row"> 
+    <div class="col-sm-12 col-md-2"> 
+      <nb-select  [(selected)]="f_nom"  class="float-left"  placeholder="Nom "  status="primary" style="margin:8px 2px; width: 100%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Tous les barrages</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of noms" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+  </div>
+    <div class="col-sm-12 col-md-2"> 
+      <nb-select  [(selected)]="f_province"  class="float-left"  placeholder="Province "  status="primary" style="margin:8px 2px; width: 100%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Toutes les provinces</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of provinces" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+  </div>
+
+    <div class="col-sm-12 col-md-2">  
+      <nb-select  [(selected)]="f_bassin"  class="float-left"  placeholder="Bassin Versant "  status="primary" style="margin:8px 2px; width: 100%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Tous les bassins</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of bassins" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+  </div>
+
+    <div class="col-sm-3 col-md-2">  
+      <nb-select  [(selected)]="f_riviere"  class="float-left"  placeholder="Rivière "  status="primary" style="margin:8px 2px; width: 100%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Toutes les rivières</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of rivieres" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+  </div>
+  <div class="col-sm-3 col-md-2">  
+    
+</div>
+  <div class="col-sm-3 col-md-2">  
+    <button class="btn btn-rein"   (click)="Fermer()">Réinitialiser les filtres</button> 
+    <!-- <button class="btn" style="margin-top: 1.25%;background-color:#94CBFF" (click)="Fermer()"><i class="fas fa-sync" style="color:#d8eafb"></i></button> -->
+  </div>
+  </div>
+  <!---->
+
+  </nb-card-header>
+
+    <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (custom)="affGraph($event)" >
+     </ng2-smart-table>
+   </nb-card-body>
+ </nb-card> 
+
+<!--   
+  <nb-card >
+ 
+
+    <nb-card-header>
+      <nb-select  [(selected)]="f_nom"  class="float-left"  placeholder="Nom "  status="primary" style="margin-top: 1.25%; margin-left: 10%; margin-right: 3.5%; width: 15%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Tous les barrages</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of noms" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+      <nb-select  [(selected)]="f_province"  class="float-left"  placeholder="Province "  status="primary" style="margin-top: 1.25%; margin-left: 1.5%; margin-right: 3.5%; width: 15%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Toutes les provinces</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of provinces" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+      <nb-select  [(selected)]="f_bassin"  class="float-left"  placeholder="Bassin Versant "  status="primary" style="margin-top: 1.25%; margin-left: 1.5%; margin-right: 3.5%; width: 15%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Tous les bassins</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of bassins" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+      <nb-select  [(selected)]="f_riviere"  class="float-left"  placeholder="Rivière "  status="primary" style="margin-top: 1.25%; margin-left: 1.5%; margin-right: 3.5%; width: 15%;"> 
+        <nb-option  (click)="filtreTableau()" value="all">Toutes les rivières</nb-option>            
+        <nb-option  (click)="filtreTableau()" *ngFor="let p of rivieres" [value]="p">   
+            {{ p }}</nb-option>
+      </nb-select>
+      <button class="btn" style="margin-top: 1.25%;background-color:#94CBFF" (click)="Fermer()"><i class="fas fa-sync" style="color:#d8eafb"></i></button>
+
+
+
+  
+    </nb-card-header>
+
+      <nb-card-body>
+     <ng2-smart-table [settings]="settings" [source]="source" (custom)="affGraph($event)"></ng2-smart-table>
+    </nb-card-body>
+  </nb-card>  -->

@@ -1,0 +1,165 @@
+<div class="container" style="margin-top: 70px;">
+
+ <nb-card class="card_fixed col-12">
+    <nb-card-body>
+        <div style="display: block ruby; grid-template-columns: auto auto">
+          <div style="float:right;"><button nbButton class="btn btn-info" [routerLink]="['/pages/alertes']" (click)="exit1()"><nb-icon icon='refresh-outline'></nb-icon></button></div>
+
+    
+      
+      
+      <!--                                                  capteurs                                                   -->
+
+
+      <nb-select  [(selected)]="filtre_cap" style="margin-right:10px;margin-left:10px;width: 80%;" class="float-right"  placeholder="Capteur "  status="primary">
+        <nb-option (click)="changeCapteur('all')" value="all">Tous les capteurs</nb-option>
+        <nb-option *ngFor="let id_capteur of id_capteurs" (click)="changeCapteur(id_capteur)"[value]="id_capteur">
+           {{ id_capteur }}</nb-option>
+      </nb-select>
+
+      <!--                                                  type de mesure                                             -->
+
+      <nb-select [(selected)]="filtre_mes"  style="margin-left:10px;width: 80%;" class="float-right"  placeholder="Paramètre "  status="primary">
+        <nb-option (click)="changeMesure('all')" >Tous les parametres</nb-option>
+
+        <nb-option (click)="changeMesure('temperature')"value="temperature">Température</nb-option>
+        <nb-option (click)="changeMesure('humidity')"value="humidity">Humidité</nb-option>
+        <nb-option (click)="changeMesure('soil_conductivity')"value="soil_conductivity">Conductivité du sol</nb-option>
+        <nb-option (click)="changeMesure('soil_temperature')"value="soil_temperature">Température du sol</nb-option>
+        <nb-option (click)="changeMesure('soil_humidity')"value="soil_humidity">Humidité du sol</nb-option>
+        <nb-option (click)="changeMesure('ultrasonic_level')"value="ultrasonic_level">Niveau d'eau</nb-option>
+        <nb-option (click)="changeMesure('light')"value="light">Luminosité</nb-option>
+   
+      </nb-select>
+
+      <!--                                                  exploitations                                                   -->
+      <nb-select [(selected)]="filtre_exp"   style="margin-left:10px;width: 80%;" class="float-left"  placeholder="Exploitation " style = "margin-left: 290px; width: 80%;" status="primary">
+        <nb-option (click)="changeExploitation('all')" >Toutes les exploitaions</nb-option>
+        <nb-option *ngFor="let exploitation of exploitations"
+         (click)="changeExploitation(exploitation.properties.id_exploitation)"
+          
+            [value]="exploitation.properties.id_exploitation">
+           {{ exploitation.properties.matricule }}</nb-option>
+      </nb-select>
+
+
+        </div>
+    </nb-card-body>
+  </nb-card> 
+
+</div>
+
+
+<div class="row">
+
+<div class="col-7 " >
+
+  <nb-card   >
+    <nb-card-body>
+        <div style="display: block ruby; grid-template-columns: auto auto">
+
+        <nb-select [(selected)]="filtre_type"   class="float-left"  placeholder="Type d'alerte "  status="primary" style="margin-top: 1.25%;">
+          <nb-option (click)="changeType('all')"  value="all">Tous les types</nb-option>
+          <nb-option *ngFor="let type of typesalt" (click)="changeType(type.value)"[value]="type.value">
+              {{ type.title }}</nb-option>
+        </nb-select>
+
+
+            <nb-select  [(selected)]="filtre_lvl"   class="float-left"  placeholder="Niveaux d'alertes "  status="primary" style="margin-top: 1.25%;margin-left: 0.5%;">
+              <nb-option (click)="changeLevel('all')" >Tous les niveaux</nb-option>
+              <nb-option *ngFor="let type of niveaux" (click)="changeLevel(type.value)"[value]="type.value">
+                  {{ type.title }}</nb-option>
+            </nb-select>
+
+ 
+            <div class="float-right">   
+              <ngx-datepicker2  (dateFrom)="dateFrom($event)" (dateTo)="dateTo($event)"  ></ngx-datepicker2> 
+            </div>
+
+      
+       </div>
+     </nb-card-body>
+ </nb-card>
+
+
+ 
+
+ <nb-card>
+   <nb-card-header>
+    <div>
+      <button nbButton   (click)="onClick()">Marquer selectionnés comme vu </button>
+      <button nbButton  style="margin-left : 10px;float: right;position: absolute;" (click)="allalerttoseen()">Marquer tout comme vu</button>
+    </div>
+   </nb-card-header>  
+     
+  <nb-card-body>
+    
+        <ng2-smart-table [settings]="settings" [source]="dataAlerte" (userRowSelect)="onRowSelect($event)">
+      </ng2-smart-table> 
+  </nb-card-body>
+  <nb-card-footer>
+
+   </nb-card-footer> 
+</nb-card>
+
+    <nb-card   >
+      <nb-card-body>
+          <div style="display: block ruby; grid-template-columns: auto auto">
+  
+          <div    class="float-left counter"  placeholder="Type d'alerte "  status="primary">
+            <div class="set_center"><i class="fas fa-circle critical" style="margin-right: 7px;" ></i>{{countNiv[0]}}</div>  
+          </div>
+          <div    class="float-left counter"  placeholder="Type d'alerte "  status="primary">
+            <div class="set_center"><i class="fas fa-circle warning" style="margin-right: 7px;" ></i>{{countNiv[1]}} </div> 
+          </div>
+          <div    class="float-left counter"  placeholder="Type d'alerte "  status="primary">
+            <div class="set_center"><i class="fas fa-circle ok"  style="margin-right: 7px;"></i> {{countNiv[2]}} </div>
+          </div>      
+        
+         </div>
+       </nb-card-body>
+ 
+   </nb-card>
+
+
+</div>
+
+
+<div class="col-5" >
+              
+
+
+  <div style="height: auto;">
+    <ngx-Map [AlertseventLevel]="AlertseventLevel" [AlertseventType]="AlertseventType" [AlertseventMes]="AlertseventMes" [AlertseventCap]="AlertseventCap" [AlertseventExp]="AlertseventExp" ></ngx-Map> 
+  </div>
+  
+
+  <div *ngIf="checkcount(this.countNiv)"> 
+  <nb-card style="  box-shadow: 4px 4px 30px #88888873">
+    <nb-tabset fullWidth>
+    <nb-tab  style="min-height: 450px; overflow: hidden;"  [tabIcon]=levelsIconConfig [tabTitle]=labelniv fullWidth> 
+      <ngx-echarts-pie-alert [labelDanger]="alertsbylevel_[0]" [dataDanger]="countNiv[0]" [labelWarning]="alertsbylevel_[1]" [dataWarning]="countNiv[1]" [labelOk]="alertsbylevel_[2]"  [dataOk]="countNiv[2]" ></ngx-echarts-pie-alert>
+    </nb-tab>
+    <nb-tab [tabIcon]=typesIconConfig [tabTitle]=labeltyp fullWidth> 
+    <ngx-echarts-pie-alert [labelDanger]="alertsbytype_[0]" [dataDanger]="countTypes[0]" [labelWarning]="alertsbytype_[1]" [dataWarning]="countTypes[1]" [labelOk]="alertsbytype_[2]"  [dataOk]="countTypes[2]" ></ngx-echarts-pie-alert>
+    </nb-tab>
+    </nb-tabset>
+    </nb-card>
+  </div>
+  <div *ngIf="!checkcount(this.countNiv)">
+    <nb-card style="  box-shadow: 4px 4px 30px #88888873">
+      <nb-tabset fullWidth>
+      <nb-tab [tabIcon]=levelsIconConfig [tabTitle]=labelniv fullWidth> 
+        Vous avez vu toutes les alertes
+      </nb-tab>
+      <nb-tab [tabIcon]=typesIconConfig [tabTitle]=labeltyp fullWidth> 
+        Vous avez vu toutes les alertes
+      </nb-tab>
+      </nb-tabset>
+      </nb-card>
+
+  </div>
+</div>
+
+
+</div>

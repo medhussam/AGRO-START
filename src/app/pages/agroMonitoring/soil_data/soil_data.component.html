@@ -1,0 +1,146 @@
+<div class="container" style="margin-top: 70px;">
+
+  <nb-card class="card_fixed col-12">
+     <nb-card-body>
+         <div style="display: block ruby; grid-template-columns: auto auto">
+ <div class="nav_fix" ><b>Exploitations : </b>  </div>
+       <!--                                                   exploitations                                                   -->
+       <nb-select  style="width: 80%;" class="float-left"  [placeholder]="selectedValue+' (ParDéfaut)'"  status="primary">
+        <nb-option *ngFor="let exploitation of exploitations"
+         (click)="changeExploitation(exploitation.id_exploitation)"
+          
+            [value]="exploitation.id_exploitation">
+           {{ exploitation.matricule }}</nb-option>
+      </nb-select>
+             <!--                                                  parcelles                                                   -->
+             <div class="nav_fix" ><b>Parcelle : </b>  </div>
+      <nb-select  style="margin-left:10px;width: 80%;" class="float-left" [(selected)]="selectedParcelle"  [placeholder]="'Id Pacelle : '+selectedParcelle+' (ParDéfaut)'"  status="primary">
+        <nb-option *ngFor="let i of Parcelle" [value]="i.id_parcelle" 
+        (click)="changeParcelle(i.id_parcelle)" >
+          {{'Id Parcelle : '+i.id_parcelle}}  </nb-option>
+          
+      </nb-select>
+        <!--                                                  date                                                   -->
+
+         </div>
+     </nb-card-body>
+   </nb-card> 
+ 
+ </div>
+
+ 
+ <div class="row">
+
+ </div> 
+ 
+ <!--  {{Parcelle | json}}-->
+ <div class="row">
+  <div  class=" float-left col-4">
+  
+    <nb-card  class="headings-card">
+      <nb-card-header>
+        
+        Informations sur la parcelle séléctionné
+      </nb-card-header>
+      <nb-card-body>
+        <div class=" header">
+          <div>
+            <p>Exploitation</p>
+          </div>
+
+          <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+            {{getparcelle_data[0].id_exploitation }}
+          </div>
+        </div>
+        <div class="header">
+          <div>
+        <p>Parcelle</p>
+          </div>
+
+          <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+            {{getparcelle_data[0].id_parcelle }}
+          </div>
+        </div>
+        <div class="header">
+          <div>
+            <p>Culture</p>
+          </div>
+          
+          <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+            {{getparcelle_data[0].culture }}
+          </div>
+        </div>
+        <div class="header">
+          <div>
+            <p>Variante</p>
+          </div>
+
+          <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+            {{getparcelle_data[0].variete }}
+          </div>
+        </div>
+        <div class="header">
+          <div>
+            <p>Semi / Plantation</p>
+          </div>
+
+          <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+            {{getparcelle_data[0].date.semi }}
+          </div>
+        </div>
+        <div class="header">
+          <div>
+            <p>Date Début </p>
+           Date Fin
+          </div>
+
+          <div *ngIf="!isEmptyObject(getparcelle_data)" class="detail">
+            {{getparcelle_data[0].date.debut}} 
+             {{getparcelle_data[0].date.fin }}
+           
+          </div>
+        </div>
+       
+          
+      </nb-card-body>
+    </nb-card>
+  </div>
+  
+     
+    <div   class="float-right col-8">
+     <ngx-soil_dataMap [date0]="date0" [daates]="daates" [ImageryData]="ImageryData" [selectedParcelle]="selectedParcelle"   [ExploitationEvent]="ExploitationEvent"    ></ngx-soil_dataMap> 
+  
+  </div>
+  
+  </div>
+   <!-- {{Capteur_SOL_time | json}}
+   <hr> -->
+  
+   <!--{{getparcelle_data | json}} -->
+
+
+
+
+
+
+
+
+
+
+   <ngx-chart-two-chart [TEMP]="TEMP" [Capteur_SOL_value_temperateur]="Capteur_SOL_value_temperateur" [Capteur_SOL_value]="Capteur_SOL_value" [Capteur_SOL_time]="Capteur_SOL_time" [satellite_SOL_value_t10]="satellite_SOL_value_t10" [satellite_SOL_value_t0]="satellite_SOL_value_t0" [satellite_SOL_value_moisture]="satellite_SOL_value_moisture"   *ngIf="!isEmptyObject(satellite_SOL_time)"  [satellite_SOL_time]="satellite_SOL_time"></ngx-chart-two-chart>
+
+<div class="row d-flex justify-content-center ">
+  <div class="date-picker-wrapper">
+    
+    <igx-date-picker  [value]="Datedebut_" (onSelection)="selectFrom($event)"   [formatter]="formatterFrom" [modalOverlaySettings]="{ outlet: element }">
+      <label igxLabel>Date début</label>
+    </igx-date-picker>
+</div>
+<div style="width: 91px;height: 67px;"></div>
+<div class="date-picker-wrapper">
+
+  <igx-date-picker [value]="Datefin_" (onSelection)="selectTo($event)"  [formatter]="formatterTo" [modalOverlaySettings]="{ outlet: element }">
+    <label igxLabel>Date fin</label>
+  </igx-date-picker>
+</div>
+</div>    

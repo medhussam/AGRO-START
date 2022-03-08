@@ -1,0 +1,37 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <a class="logo" href="#" (click)="navigateHome()">
+      <img src="assets/images/logo-iot.png" alt="logo" class="logoIndex">
+     <b>Agro-<span>Start</span></b></a>
+  </div>
+  <nb-select  style="margin-left: 50px;"   [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
+    <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
+  </nb-select>
+  <nb-select style="margin-left: 50px;" #selLang  [selected]="currentLangage" (selectedChange)="translateLanguageTo($event)" status="primary">
+    <!-- <nb-option *ngFor="let language of translate.getLangs()" [value]="language">{{ language }}</nb-option> -->
+    <nb-option  value="fr">Fr &nbsp;<img src="assets/images/france.png"></nb-option>
+    <nb-option  value="en">Ar &nbsp;<img src="assets/images/maroc.png"></nb-option>
+  
+  </nb-select>
+</div>
+<div class="header-container">
+  <nb-actions size="small">
+    <nb-action class="control-item">
+      <!-- <nb-search type="rotate-layout"></nb-search> -->
+    </nb-action>
+    <!-- <nb-action class="control-item" icon="email-outline"></nb-action> -->
+    <nb-action class="control-item" icon="bell-outline"></nb-action>
+    <nb-action class="control-item" icon="email-outline"></nb-action>
+    <nb-action class="user-action" *nbIsGranted="['view', 'user']" >
+      <nb-user [nbContextMenu]="userMenu"
+               [onlyPicture]="userPictureOnly"
+               [name]="user?.name"
+               nbContextMenuTag="my-context-menu">
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+</div>
+<div class="mybadge"></div>
